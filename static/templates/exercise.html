@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/exercise.css') }}">
+
+<div class="exercise-page">
+
+    <!-- HEADER -->
+    <section class="exercise-header">
+
+        <div>
+            <span class="section-badge">🏋️ NutriAI Fitness</span>
+
+            <h1>Exercise Planner</h1>
+
+            <p>
+                Stay active, burn calories and achieve your
+                fitness goals with a simple daily workout plan.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- TODAY'S SUMMARY -->
+    <section class="exercise-summary">
+
+        <div class="summary-card">
+            <div class="summary-icon">⏱️</div>
+            <div>
+                <span>Today's Workout</span>
+                <h2>35 min</h2>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary-icon">🔥</div>
+            <div>
+                <span>Calories Burned</span>
+                <h2>280 kcal</h2>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary-icon">🎯</div>
+            <div>
+                <span>Workout Goal</span>
+                <h2>45 min</h2>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary-icon">🏆</div>
+            <div>
+                <span>Weekly Streak</span>
+                <h2>5 Days</h2>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- WORKOUT LEVEL -->
+    <section class="level-section">
+
+        <h2>Choose Your Workout Level</h2>
+
+        <div class="level-grid">
+
+            <div class="level-card">
+
+                <div class="level-icon">🌱</div>
+
+                <h3>Beginner</h3>
+
+                <p>
+                    Easy exercises for beginners and
+                    people starting their fitness journey.
+                </p>
+
+                <a href="#beginner"
+                   class="exercise-btn">
+                    Start Workout
+                </a>
+
+            </div>
+
+
+            <div class="level-card active">
+
+                <div class="level-icon">💪</div>
+
+                <h3>Intermediate</h3>
+
+                <p>
+                    Moderate workouts for improving
+                    strength and stamina.
+                </p>
+
+                <a href="#intermediate"
+                   class="exercise-btn">
+                    Start Workout
+                </a>
+
+            </div>
+
+
+            <div class="level-card">
+
+                <div class="level-icon">🔥</div>
+
+                <h3>Advanced</h3>
+
+                <p>
+                    Challenging workouts for experienced
+                    fitness enthusiasts.
+                </p>
+
+                <a href="#advanced"
+                   class="exercise-btn">
+                    Start Workout
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TODAY'S WORKOUT -->
+    <section class="workout-section"
+             id="intermediate">
+
+        <div class="workout-title">
+
+            <div>
+                <span class="small-title">
+                    TODAY'S PLAN
+                </span>
+
+                <h2>Full Body Workout</h2>
+            </div>
+
+            <span class="workout-time">
+                ⏱️ 35 Minutes
+            </span>
+
+        </div>
+
+
+        <div class="workout-grid">
+
+
+            <!-- EXERCISE 1 -->
+            <div class="workout-card">
+
+                <div class="workout-number">
+                    01
+                </div>
+
+                <div class="workout-icon">
+                    🚶
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>Warm Up</h3>
+
+                    <p>
+                        Light walking and stretching
+                        to prepare your body.
+                    </p>
+
+                    <div class="workout-details">
+                        <span>⏱️ 5 min</span>
+                        <span>🔥 25 kcal</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXERCISE 2 -->
+            <div class="workout-card">
+
+                <div class="workout-number">
+                    02
+                </div>
+
+                <div class="workout-icon">
+                    🏃
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>Jogging</h3>
+
+                    <p>
+                        Moderate jogging to improve
+                        cardiovascular fitness.
+                    </p>
+
+                    <div class="workout-details">
+                        <span>⏱️ 10 min</span>
+                        <span>🔥 90 kcal</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXERCISE 3 -->
+            <div class="workout-card">
+
+                <div class="workout-number">
+                    03
+                </div>
+
+                <div class="workout-icon">
+                    🏋️
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>Squats</h3>
+
+                    <p>
+                        Strengthen your legs and
+                        improve lower body strength.
+                    </p>
+
+                    <div class="workout-details">
+                        <span>🔢 3 × 12</span>
+                        <span>🔥 55 kcal</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXERCISE 4 -->
+            <div class="workout-card">
+
+                <div class="workout-number">
+                    04
+                </div>
+
+                <div class="workout-icon">
+                    💪
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>Push Ups</h3>
+
+                    <p>
+                        Build upper body strength and
+                        improve muscular endurance.
+                    </p>
+
+                    <div class="workout-details">
+                        <span>🔢 3 × 10</span>
+                        <span>🔥 45 kcal</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXERCISE 5 -->
+            <div class="workout-card">
+
+                <div class="workout-number">
+                    05
+                </div>
+
+                <div class="workout-icon">
+                    🧘
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>Stretching</h3>
+
+                    <p>
+                        Relax your muscles and improve
+                        flexibility after your workout.
+                    </p>
+
+                    <div class="workout-details">
+                        <span>⏱️ 5 min</span>
+                        <span>🔥 20 kcal</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FITNESS TIP -->
+    <section class="fitness-tip">
+
+        <div class="tip-icon">💡</div>
+
+        <div>
+            <h3>Today's Fitness Tip</h3>
+
+            <p>
+                Stay hydrated throughout your workout
+                and take short breaks whenever needed.
+                Consistency is more important than intensity.
+            </p>
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

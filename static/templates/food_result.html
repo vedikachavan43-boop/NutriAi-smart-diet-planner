@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+
+{% block title %}
+Food Detection Result - NutriAI
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/food_result.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="food-result-page">
+
+    <!-- HEADER -->
+
+    <div class="result-header">
+
+        <div class="result-badge">
+            🤖 AI Food Detection Result
+        </div>
+
+        <h1>
+            Your Food
+            <span>Analysis</span>
+        </h1>
+
+        <p>
+            NutriAI has analyzed your food image and generated
+            the nutritional information.
+        </p>
+
+    </div>
+
+
+    <!-- MAIN RESULT -->
+
+    <div class="result-container">
+
+
+        <!-- IMAGE CARD -->
+
+        <div class="food-image-card">
+
+            <div class="card-label">
+                📷 Uploaded Food
+            </div>
+
+            <div class="food-image-wrapper">
+
+                <img
+    src="{{ url_for('static', filename='uploads/' + image_path) }}"
+    alt="{{ food }}"
+    class="food-result-image">
+            </div>
+
+        </div>
+
+
+        <!-- FOOD INFORMATION -->
+
+        <div class="food-info-card">
+
+            <div class="detected-badge">
+                ✅ Food Detected
+            </div>
+
+            <h2>
+                {{ food }}
+            </h2>
+
+            <div class="confidence-box">
+
+                <span>
+                    🎯 Detection Confidence
+                </span>
+
+                <strong>
+                    {{ confidence }}%
+                </strong>
+
+            </div>
+
+
+            <!-- NUTRITION GRID -->
+
+            <div class="nutrition-grid">
+
+
+                <!-- CALORIES -->
+
+                <div class="nutrition-card calories">
+
+                    <div class="nutrition-icon">
+                        🔥
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Calories
+                        </span>
+
+                        <strong>
+                            {{ calories }} kcal
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROTEIN -->
+
+                <div class="nutrition-card protein">
+
+                    <div class="nutrition-icon">
+                        💪
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Protein
+                        </span>
+
+                        <strong>
+                            {{ protein }} g
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARBS -->
+
+                <div class="nutrition-card carbs">
+
+                    <div class="nutrition-icon">
+                        🌾
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Carbohydrates
+                        </span>
+
+                        <strong>
+                            {{ carbs }} g
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAT -->
+
+                <div class="nutrition-card fat">
+
+                    <div class="nutrition-icon">
+                        🥑
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Healthy Fats
+                        </span>
+
+                        <strong>
+                            {{ fat }} g
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NUTRITION SUMMARY -->
+
+    <div class="nutrition-summary">
+
+        <div class="summary-icon">
+            🥗
+        </div>
+
+        <div>
+
+            <h3>
+                Nutrition Summary
+            </h3>
+
+            <p>
+                This food contains approximately
+                <strong>{{ calories }} kcal</strong>,
+                <strong>{{ protein }} g protein</strong>,
+                <strong>{{ carbs }} g carbohydrates</strong>
+                and
+                <strong>{{ fat }} g fat</strong>.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTION BUTTONS -->
+
+    <div class="result-actions">
+
+        <a href="/"
+           class="action-btn primary">
+
+            <i class="fa-solid fa-camera"></i>
+
+            Detect Another Food
+
+        </a>
+
+
+        <a href="/history"
+           class="action-btn secondary">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            View Food History
+
+        </a>
+
+
+        <a href="/dashboard"
+           class="action-btn dashboard">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <div class="result-note">
+
+        💡 Nutritional values are approximate and may vary
+        depending on food quantity and preparation method.
+
+    </div>
+
+
+</section>
+
+{% endblock %}

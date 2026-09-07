@@ -1,0 +1,475 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Progress Tracking - NutriAI
+{% endblock %}
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/progress.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="progress-page">
+
+
+    <!-- =====================================
+         PAGE HEADER
+    ====================================== -->
+
+    <div class="progress-header">
+
+        <h1>
+            Track Your <span>Progress</span>
+        </h1>
+
+        <p>
+            Monitor your nutrition, calories, BMI and
+            overall health progress in one place.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SUMMARY CARDS
+    ====================================== -->
+
+    <div class="summary-grid">
+
+
+        <!-- WEEKLY CALORIES -->
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                🔥
+            </div>
+
+            <h3>
+                Weekly Calories
+            </h3>
+
+            <strong>
+                {{ "{:,}".format(weekly_calories) }}
+            </strong>
+
+            <p>
+                kcal consumed
+            </p>
+
+        </div>
+
+
+
+        <!-- BMI -->
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                Current BMI
+            </h3>
+
+            <strong>
+                {{ current_bmi }}
+            </strong>
+
+            <p>
+                Your BMI
+            </p>
+
+        </div>
+
+
+
+        <!-- MEALS TRACKED -->
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                🥗
+            </div>
+
+            <h3>
+                Meals Tracked
+            </h3>
+
+            <strong>
+                {{ meals_tracked }}
+            </strong>
+
+            <p>
+                This week
+            </p>
+
+        </div>
+
+
+
+        <!-- HEALTHY STREAK -->
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                🔥
+            </div>
+
+            <h3>
+                Healthy Streak
+            </h3>
+
+            <strong>
+                {{ healthy_streak }}
+            </strong>
+
+            <p>
+                Days tracked
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         MAIN PROGRESS
+    ====================================== -->
+
+    <div class="progress-main">
+
+
+        <!-- =================================
+             WEEKLY CALORIE CHART
+        ================================== -->
+
+        <div class="chart-card">
+
+
+            <div class="chart-title">
+
+                <div class="chart-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <h2>
+                        Weekly Calorie Progress
+                    </h2>
+
+                    <p>
+                        Your calorie intake over the last 7 days
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CHART -->
+
+            <div class="chart-area">
+
+
+                <!-- Y AXIS -->
+
+                <div class="y-axis">
+
+                    <span>15000</span>
+
+                    <span>12500</span>
+
+                    <span>10000</span>
+
+                    <span>7500</span>
+
+                    <span>5000</span>
+
+                    <span>2500</span>
+
+                    <span>0</span>
+
+                </div>
+
+
+
+                <!-- BARS -->
+
+                <div class="bars-area">
+
+
+                    <!-- GRID LINES -->
+
+                    <div class="grid-line line1"></div>
+
+                    <div class="grid-line line2"></div>
+
+                    <div class="grid-line line3"></div>
+
+                    <div class="grid-line line4"></div>
+
+                    <div class="grid-line line5"></div>
+
+                    <div class="grid-line line6"></div>
+
+                    <div class="grid-line line7"></div>
+
+
+
+                    <!-- DYNAMIC BARS -->
+
+                    {% for item in weekly_data %}
+
+
+                    <div class="bar-column">
+
+
+                        <div class="bar"
+     data-height="{{ item.height }}"
+     title="{{ item.calories }} kcal">
+</div>
+
+                        <span>
+                            {{ item.day }}
+                        </span>
+
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             WEEKLY GOAL
+        ================================== -->
+
+        <div class="goal-card">
+
+
+            <h2>
+                🎯 Weekly Goal
+            </h2>
+
+
+            <p>
+                Keep tracking your meals and stay healthy!
+            </p>
+
+
+
+            <!-- CIRCLE -->
+
+            <div
+                class="circle-progress"
+                style="--progress: {{ goal_percentage }}%;"
+            >
+
+                <div class="circle-inner">
+
+                    {{ goal_percentage }}%
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GOAL -->
+
+            <div class="goal-row">
+
+                <span>
+                    🎯 Goal
+                </span>
+
+                <strong>
+                    {{ "{:,}".format(weekly_goal) }} kcal
+                </strong>
+
+            </div>
+
+
+
+            <!-- COMPLETED -->
+
+            <div class="goal-row">
+
+                <span>
+                    ✓ Completed
+                </span>
+
+                <strong>
+                    {{ "{:,}".format(weekly_calories) }} kcal
+                </strong>
+
+            </div>
+
+
+
+            <!-- REMAINING -->
+
+            <div class="goal-row">
+
+                <span>
+                    ◷ Remaining
+                </span>
+
+                <strong>
+                    {{ "{:,}".format(remaining_calories) }} kcal
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         HEALTH INSIGHTS
+    ====================================== -->
+
+    <div class="insights-section">
+
+
+        <div class="insights-heading">
+
+            <span>
+                💡
+            </span>
+
+            <h2>
+                Health Insights
+            </h2>
+
+        </div>
+
+
+
+        <div class="insights-grid">
+
+
+            <!-- BALANCED NUTRITION -->
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    🥗
+                </div>
+
+                <div>
+
+                    <h3>
+                        Balanced Nutrition
+                    </h3>
+
+                    <p>
+                        Keep including vegetables, fruits,
+                        protein and healthy carbohydrates
+                        in your daily meals.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HYDRATION -->
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    💧
+                </div>
+
+                <div>
+
+                    <h3>
+                        Stay Hydrated
+                    </h3>
+
+                    <p>
+                        Remember to drink enough water
+                        throughout the day to support
+                        your healthy routine.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONSISTENCY -->
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    🏆
+                </div>
+
+                <div>
+
+                    <h3>
+                        Keep Tracking
+                    </h3>
+
+                    <p>
+                        Continue detecting your meals
+                        regularly to maintain an accurate
+                        nutrition history.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const bars = document.querySelectorAll(".bar");
+
+    bars.forEach(function (bar) {
+
+        const height = bar.getAttribute("data-height");
+
+        bar.style.height = height + "%";
+
+    });
+
+});
+</script>
+{% endblock %}

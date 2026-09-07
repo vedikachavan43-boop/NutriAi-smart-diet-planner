@@ -1,0 +1,919 @@
+/* =========================================================
+   NUTRIAI DIET PLAN
+========================================================= */
+
+.diet-page,
+.result-page {
+
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 45px 25px 70px;
+}
+
+
+/* ================= HEADER ================= */
+
+.diet-header {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.diet-badge {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    border: 1.5px solid #166534;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+.diet-header h1 {
+
+    font-size: 38px;
+
+    color: #0f172a;
+
+    margin-bottom: 8px;
+}
+
+.diet-header h1 span {
+
+    color: #166534;
+}
+
+.diet-header p {
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* ================= FORM ================= */
+
+.diet-form-card {
+
+    background: #ffffff;
+
+    border: 2px solid #166534;
+
+    border-radius: 22px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 15px 40px rgba(22,101,52,0.12);
+
+    margin-bottom: 25px;
+}
+
+.form-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.form-icon {
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dcfce7;
+
+    border: 1px solid #22c55e;
+
+    border-radius: 15px;
+
+    font-size: 27px;
+}
+
+.form-title h2 {
+
+    color: #0f172a;
+
+    font-size: 22px;
+}
+
+.form-title p {
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* ================= INPUT GRID ================= */
+
+.diet-form {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.input-group label {
+
+    color: #14532d;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.input-group label i {
+
+    margin-right: 5px;
+}
+
+.input-wrapper {
+
+    position: relative;
+}
+
+.input-wrapper input,
+.input-group select {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border: 1.5px solid #166534;
+
+    border-radius: 10px;
+
+    background: #fafffb;
+
+    outline: none;
+
+    font-size: 13px;
+
+    color: #1e293b;
+}
+
+.input-wrapper input:focus,
+.input-group select:focus {
+
+    border-color: #22c55e;
+
+    box-shadow:
+        0 0 0 3px rgba(34,197,94,0.12);
+}
+
+.input-wrapper span {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+.full-width {
+
+    grid-column: 1 / -1;
+}
+
+
+/* ================= BUTTON ================= */
+
+.generate-btn {
+
+    grid-column: 1 / -1;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #166534,
+            #16a34a
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.generate-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(22,101,52,0.25);
+}
+
+.privacy-note {
+
+    margin-top: 12px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* ================= ASSISTANT ================= */
+
+.assistant-card {
+
+    background: #ffffff;
+
+    border: 2px solid #166534;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+.assistant-main {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.assistant-icon {
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dcfce7;
+
+    border: 1px solid #86efac;
+
+    border-radius: 14px;
+
+    font-size: 25px;
+}
+
+.assistant-main h2 {
+
+    color: #0f172a;
+
+    font-size: 17px;
+}
+
+.assistant-main p {
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.assistant-feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    border-left: 1px dashed #86efac;
+
+    padding-left: 17px;
+}
+
+.feature-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dcfce7;
+
+    border: 1px solid #86efac;
+
+    border-radius: 11px;
+
+    font-size: 20px;
+}
+
+.assistant-feature strong {
+
+    display: block;
+
+    color: #14532d;
+
+    font-size: 11px;
+}
+
+.assistant-feature small {
+
+    color: #64748b;
+
+    font-size: 9px;
+}
+
+
+/* ================= USER SUMMARY ================= */
+
+.user-summary {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 40px;
+}
+
+.user-summary > div {
+
+    background: #ffffff;
+
+    border: 2px solid #166534;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    text-align: center;
+}
+
+.user-summary span {
+
+    display: block;
+
+    color: #16a34a;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.user-summary strong {
+
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 20px;
+
+    margin-top: 3px;
+}
+
+.user-summary small {
+
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+
+/* ================= RESULT TITLE ================= */
+
+.result-section-title {
+
+    margin-bottom: 20px;
+}
+
+.result-section-title span {
+
+    color: #166534;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.result-section-title h2 {
+
+    color: #0f172a;
+
+    font-size: 25px;
+
+    margin-top: 3px;
+}
+
+
+/* ================= MEALS ================= */
+
+.meal-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+.meal-card {
+
+    background: #ffffff;
+
+    border: 2px solid #166534;
+
+    border-radius: 17px;
+
+    padding: 20px;
+
+    min-height: 205px;
+
+    transition: 0.3s ease;
+}
+
+.meal-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 28px rgba(22,101,52,0.15);
+}
+
+.meal-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dcfce7;
+
+    border: 1px solid #86efac;
+
+    border-radius: 13px;
+
+    font-size: 24px;
+
+    margin-bottom: 13px;
+}
+
+.meal-type {
+
+    color: #16a34a;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.meal-card h3 {
+
+    color: #0f172a;
+
+    font-size: 15px;
+
+    margin: 5px 0;
+}
+
+.meal-card p {
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    min-height: 42px;
+}
+
+.calorie {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 6px 10px;
+
+    background: #f0fdf4;
+
+    color: #166534;
+
+    border: 1px solid #86efac;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* ================= BOTTOM ================= */
+
+.result-bottom {
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr 0.8fr 1fr;
+
+    gap: 16px;
+}
+
+.summary-card {
+
+    background: #ffffff;
+
+    border: 2px solid #166534;
+
+    border-radius: 17px;
+
+    padding: 22px;
+}
+
+.summary-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.summary-icon {
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dcfce7;
+
+    border: 1px solid #86efac;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+}
+
+.summary-card h3 {
+
+    color: #0f172a;
+
+    font-size: 16px;
+}
+
+.summary-card p {
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* ================= NUTRITION ================= */
+
+.nutrition-list div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 9px 0;
+
+    border-bottom:
+        1px dashed #bbf7d0;
+
+    font-size: 11px;
+}
+
+.nutrition-list div:last-child {
+
+    border-bottom: none;
+}
+
+.nutrition-list span {
+
+    color: #475569;
+}
+
+.nutrition-list strong {
+
+    color: #166534;
+}
+
+
+/* ================= WATER ================= */
+
+.hydration {
+
+    text-align: center;
+}
+
+.hydration .summary-icon {
+
+    margin: auto;
+}
+
+.water-value {
+
+    color: #16a34a;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    margin: 12px 0;
+}
+
+
+/* ================= TIPS ================= */
+
+.health-tips {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin-top: 10px;
+}
+
+.health-tips li {
+
+    color: #475569;
+
+    font-size: 11px;
+
+    padding: 6px 0;
+}
+
+.health-tips li::before {
+
+    content: "✓";
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    margin-right: 7px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    border-radius: 50%;
+
+    font-weight: bold;
+}
+
+
+/* ================= ACTIONS ================= */
+
+.plan-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.new-plan-btn,
+.dashboard-btn {
+
+    min-width: 185px;
+
+    padding: 12px 20px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.new-plan-btn {
+
+    background: #166534;
+
+    color: #ffffff;
+}
+
+.dashboard-btn {
+
+    background: #ffffff;
+
+    color: #166534;
+
+    border: 2px solid #166534;
+}
+
+.new-plan-btn:hover,
+.dashboard-btn:hover {
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= NOTE ================= */
+
+.diet-note {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding: 13px;
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 10px;
+
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1000px) {
+
+    .assistant-card {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .meal-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .result-bottom {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .diet-page,
+    .result-page {
+
+        padding: 30px 15px 50px;
+    }
+
+    .diet-header h1 {
+
+        font-size: 28px;
+    }
+
+    .diet-form {
+
+        grid-template-columns: 1fr;
+    }
+
+    .full-width,
+    .generate-btn {
+
+        grid-column: auto;
+    }
+
+    .assistant-card {
+
+        grid-template-columns: 1fr;
+    }
+
+    .assistant-feature {
+
+        border-left: none;
+
+        border-top: 1px dashed #86efac;
+
+        padding-left: 0;
+
+        padding-top: 12px;
+    }
+
+    .user-summary {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .meal-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .result-bottom {
+
+        grid-template-columns: 1fr;
+    }
+
+    .plan-actions {
+
+        flex-direction: column;
+    }
+
+    .new-plan-btn,
+    .dashboard-btn {
+
+        width: 100%;
+    }
+}

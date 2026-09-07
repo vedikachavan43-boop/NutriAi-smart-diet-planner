@@ -1,0 +1,593 @@
+/* =========================================
+   REGISTER PAGE
+========================================= */
+
+.register-page {
+
+    min-height: calc(100vh - 70px);
+
+    padding: 65px 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ecfdf5,
+            #ffffff,
+            #f0fdf4
+        );
+
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.register-container {
+
+    width: 100%;
+
+    max-width: 990px;
+
+    min-height: 560px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    overflow: hidden;
+
+    border-radius: 26px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 25px 60px
+        rgba(15, 23, 42, 0.12);
+
+}
+
+
+/* =========================================
+   LEFT SECTION
+========================================= */
+
+.register-left {
+
+    position: relative;
+
+    padding: 55px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #166534,
+            #16a34a,
+            #22c55e
+        );
+}
+
+
+/* Decorative circles */
+
+.register-left::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+
+    height: 210px;
+
+    border-radius: 50%;
+
+    top: -90px;
+
+    right: -60px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+}
+
+
+.register-left::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    bottom: -90px;
+
+    left: -60px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+}
+
+
+/* =========================================
+   BRAND ICON
+========================================= */
+
+.brand-icon {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 54px;
+
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    font-size: 27px;
+
+}
+
+
+/* =========================================
+   LEFT HEADING
+========================================= */
+
+.register-left h1 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0 0 20px;
+
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+}
+
+
+.register-left > p {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 410px;
+
+    margin-bottom: 28px;
+
+    color:
+        rgba(255,255,255,0.90);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.register-features {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+}
+
+
+.register-feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.register-feature span {
+
+    width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    font-size: 17px;
+
+}
+
+
+.register-feature p {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================
+   RIGHT SECTION
+========================================= */
+
+.register-right {
+
+    padding: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #ffffff;
+
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.register-right h2 {
+
+    margin: 0 0 7px;
+
+    color: #0f172a;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+}
+
+
+.register-subtitle {
+
+    margin: 0 0 25px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+
+    margin-bottom: 16px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================
+   INPUT BOX
+========================================= */
+
+.input-box {
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 13px;
+
+    border: 1px solid #dbe3e8;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    transition: 0.3s ease;
+
+}
+
+
+.input-box i {
+
+    color: #22c55e;
+
+    font-size: 14px;
+
+}
+
+
+.input-box input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #1e293b;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 12px;
+
+}
+
+
+.input-box input::placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+.input-box:focus-within {
+
+    border-color: #22c55e;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(34,197,94,0.10);
+
+}
+
+
+/* =========================================
+   REGISTER BUTTON
+========================================= */
+
+.register-submit {
+
+    width: 100%;
+
+    height: 47px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #16a34a
+        );
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(34,197,94,0.20);
+
+    transition: 0.3s ease;
+
+}
+
+
+.register-submit i {
+
+    margin-right: 7px;
+
+}
+
+
+.register-submit:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(34,197,94,0.28);
+
+}
+
+
+/* =========================================
+   LOGIN LINK
+========================================= */
+
+.login-link {
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+}
+
+
+.login-link a {
+
+    color: #16a34a;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+
+.login-link a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .register-page {
+
+        padding: 45px 25px;
+
+    }
+
+    .register-container {
+
+        grid-template-columns: 1fr;
+
+        max-width: 600px;
+
+    }
+
+    .register-left {
+
+        padding: 40px;
+
+    }
+
+    .register-left h1 {
+
+        font-size: 32px;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .register-page {
+
+        padding: 30px 15px;
+
+    }
+
+    .register-container {
+
+        border-radius: 20px;
+
+    }
+
+    .register-left {
+
+        padding: 35px 25px;
+
+    }
+
+    .register-right {
+
+        padding: 30px 25px;
+
+    }
+
+    .register-left h1 {
+
+        font-size: 29px;
+
+    }
+
+    .register-right h2 {
+
+        font-size: 25px;
+
+    }
+
+}

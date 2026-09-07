@@ -1,0 +1,674 @@
+{% extends "base.html" %}
+
+{% block title %}
+About NutriAI
+{% endblock %}
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/about.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="about-page">
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="about-hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+
+                <i class="fa-solid fa-heart-pulse"></i>
+
+                SMART NUTRITION WITH AI
+
+            </div>
+
+
+            <h1>
+
+                About <span>NutriAI</span>
+
+            </h1>
+
+
+            <p>
+
+                NutriAI is an AI-powered nutrition assistant
+                designed to make healthy eating simple,
+                smart and personalized.
+
+            </p>
+
+
+            <p>
+
+                It helps users identify food from images,
+                estimate calories, calculate BMI and
+                generate personalized diet plans.
+
+            </p>
+
+
+            <a href="{{ url_for('food_detection') }}"
+               class="hero-btn">
+
+                <i class="fa-solid fa-camera"></i>
+
+                Try Food Detection
+
+            </a>
+
+        </div>
+
+
+
+        <!-- AI CARD -->
+
+        <div class="hero-card">
+
+            <div class="ai-circle">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+
+            <h3>
+                AI Nutrition Assistant
+            </h3>
+
+
+            <p>
+
+                Your smart companion for better food
+                choices and healthier lifestyle decisions.
+
+            </p>
+
+
+            <div class="mini-stats">
+
+                <div>
+
+                    <strong>AI</strong>
+
+                    <span>Detection</span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>24/7</strong>
+
+                    <span>Support</span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>Smart</strong>
+
+                    <span>Nutrition</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         ABOUT PROJECT
+    ====================================== -->
+
+    <section class="section">
+
+
+        <div class="section-heading">
+
+            <span>
+                ABOUT THE PROJECT
+            </span>
+
+            <h2>
+                What is <b>NutriAI?</b>
+            </h2>
+
+        </div>
+
+
+
+        <div class="about-grid">
+
+
+            <div class="about-text">
+
+                <h3>
+                    Making Nutrition <span>Smarter</span>
+                </h3>
+
+
+                <p>
+
+                    NutriAI is a smart web-based nutrition
+                    management system that combines
+                    Artificial Intelligence with health
+                    and nutrition analysis.
+
+                </p>
+
+
+                <p>
+
+                    Users can upload a food image and the
+                    AI model detects the food item and
+                    provides estimated nutritional
+                    information such as calories,
+                    protein, carbohydrates and fats.
+
+                </p>
+
+
+                <p>
+
+                    NutriAI also provides BMI calculation,
+                    personalized diet recommendations,
+                    healthy recipes and health progress
+                    tracking.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="about-visual">
+
+
+                <div class="floating-card card-one">
+
+                    <i class="fa-solid fa-fire"></i>
+
+                    <div>
+
+                        <strong>
+                            Calories
+                        </strong>
+
+                        <small>
+                            Smart Analysis
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="main-about-icon">
+
+                    <i class="fa-solid fa-leaf"></i>
+
+                </div>
+
+
+
+                <div class="floating-card card-two">
+
+                    <i class="fa-solid fa-bowl-food"></i>
+
+                    <div>
+
+                        <strong>
+                            Healthy Food
+                        </strong>
+
+                        <small>
+                            Better Choices
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FEATURES
+    ====================================== -->
+
+    <section class="section features-section">
+
+
+        <div class="section-heading">
+
+            <span>
+                OUR FEATURES
+            </span>
+
+            <h2>
+                Everything You Need for a
+                <b>Healthy Lifestyle</b>
+            </h2>
+
+        </div>
+
+
+
+        <div class="features-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-camera"></i>
+
+                </div>
+
+                <h3>
+                    AI Food Detection
+                </h3>
+
+                <p>
+
+                    Upload a food image and let AI
+                    identify the food item automatically.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+
+                </div>
+
+                <h3>
+                    Calorie Analysis
+                </h3>
+
+                <p>
+
+                    Get estimated calories and
+                    nutritional information for
+                    detected food.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-weight-scale"></i>
+
+                </div>
+
+                <h3>
+                    BMI Calculator
+                </h3>
+
+                <p>
+
+                    Calculate your BMI and understand
+                    your basic body health category.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                </div>
+
+                <h3>
+                    AI Diet Plan
+                </h3>
+
+                <p>
+
+                    Get personalized diet recommendations
+                    based on your health information.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                </div>
+
+                <h3>
+                    Healthy Recipes
+                </h3>
+
+                <p>
+
+                    Explore healthy and nutritious
+                    recipes for your daily meals.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </div>
+
+                <h3>
+                    Progress Tracking
+                </h3>
+
+                <p>
+
+                    Track your food history, calories
+                    and health progress over time.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         HOW IT WORKS
+    ====================================== -->
+
+    <section class="how-section">
+
+
+        <div class="section-heading">
+
+            <span>
+                HOW IT WORKS
+            </span>
+
+            <h2>
+                Simple Steps to
+                <b>Better Nutrition</b>
+            </h2>
+
+        </div>
+
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <i class="fa-solid fa-upload"></i>
+
+                <h3>
+                    Upload
+                </h3>
+
+                <p>
+                    Upload a clear image of your food.
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <i class="fa-solid fa-robot"></i>
+
+                <h3>
+                    Detect
+                </h3>
+
+                <p>
+                    AI identifies the food item.
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                <h3>
+                    Analyze
+                </h3>
+
+                <p>
+                    View calories and nutrition information.
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <i class="fa-solid fa-heart"></i>
+
+                <h3>
+                    Improve
+                </h3>
+
+                <p>
+                    Follow personalized healthy recommendations.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         WHY NUTRIAI
+    ====================================== -->
+
+    <section class="section">
+
+
+        <div class="why-box">
+
+
+            <div>
+
+                <span>
+                    WHY NUTRIAI?
+                </span>
+
+
+                <h2>
+
+                    Your Food.
+                    Your Health.
+                    <b>Your Smart Assistant.</b>
+
+                </h2>
+
+
+                <p>
+
+                    NutriAI brings food recognition,
+                    nutrition analysis, BMI calculation
+                    and personalized diet planning
+                    together in one simple platform.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="why-points">
+
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Easy to use
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    AI-powered food recognition
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Personalized recommendations
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Health progress tracking
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FUTURE VISION
+    ====================================== -->
+
+    <section class="future-section">
+
+
+        <div class="future-content">
+
+
+            <div class="future-icon">
+
+                <i class="fa-solid fa-rocket"></i>
+
+            </div>
+
+
+            <span>
+                FUTURE VISION
+            </span>
+
+
+            <h2>
+
+                Building a
+                <b>Smarter & Healthier</b>
+                Future
+
+            </h2>
+
+
+            <p>
+
+                NutriAI can be further enhanced with
+                advanced AI models, voice assistance,
+                mobile applications, wearable device
+                integration, multilingual support and
+                more accurate nutrition analysis.
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+</section>
+
+{% endblock %}

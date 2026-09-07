@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register - NutriAI
+{% endblock %}
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/register.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="register-page">
+
+    <div class="register-container">
+
+
+        <!-- =================================
+             LEFT BRAND SECTION
+        ================================== -->
+
+        <div class="register-left">
+
+            <div class="brand-icon">
+                🌿
+            </div>
+
+            <h1>
+                Join NutriAI
+            </h1>
+
+            <p>
+                Start your healthy journey with
+                AI-powered food detection,
+                calorie tracking and personalized
+                diet plans.
+            </p>
+
+
+            <!-- FEATURES -->
+
+            <div class="register-features">
+
+                <div class="register-feature">
+
+                    <span>🤖</span>
+
+                    <p>
+                        AI Food Detection
+                    </p>
+
+                </div>
+
+
+                <div class="register-feature">
+
+                    <span>🔥</span>
+
+                    <p>
+                        Smart Calorie Tracking
+                    </p>
+
+                </div>
+
+
+                <div class="register-feature">
+
+                    <span>🧠</span>
+
+                    <p>
+                        Personalized Diet Plans
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             RIGHT REGISTER FORM
+        ================================== -->
+
+        <div class="register-right">
+
+            <h2>
+                Create Account
+            </h2>
+
+            <p class="register-subtitle">
+                Register to start your NutriAI journey
+            </p>
+
+
+            <!-- =================================
+                 ERROR MESSAGE
+            ================================== -->
+
+            {% if error %}
+
+            <div class="register-error">
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                {{ error }}
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- =================================
+                 REGISTER FORM
+            ================================== -->
+
+            <form method="POST"
+                  action="{{ url_for('register') }}">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Create a password"
+                            minlength="6"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            placeholder="Confirm your password"
+                            minlength="6"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="register-submit">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Create Account
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- LOGIN LINK -->
+
+            <p class="login-link">
+
+                Already have an account?
+
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

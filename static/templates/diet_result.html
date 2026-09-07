@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+
+{% block title %}
+Your AI Diet Plan - NutriAI
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/diet.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="diet-section">
+
+    <div class="diet-container">
+
+        <!-- HEADER -->
+        <div class="diet-header">
+
+            <div class="diet-badge">
+                🌿 AI Powered Nutrition
+            </div>
+
+            <h1>
+                Your Personalized
+                <span>AI Diet Plan</span>
+            </h1>
+
+            <p>
+                A healthy meal plan created according to
+                your selected goal and diet preference.
+            </p>
+
+        </div>
+
+
+        <!-- MAIN RESULT CARD -->
+        <div class="diet-main-card">
+
+            <!-- PLAN TOP -->
+
+            <div class="plan-top">
+
+                <div class="plan-title-area">
+
+                    <div class="plan-icon">
+                        🥗
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            {{ diet_plan.title }}
+                        </h2>
+
+                        <p>
+                            Your personalized daily nutrition plan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="plan-badges">
+
+                    <div class="plan-badge">
+                        🎯 {{ goal|replace('-', ' ')|title }}
+                    </div>
+
+                    <div class="plan-badge">
+                        🌿 {{ diet_preference|replace('-', ' ')|title }}
+                    </div>
+
+                    <div class="plan-badge">
+                        👤 {{ age }} Years
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DAILY MEAL PLAN -->
+
+            <div class="section-title">
+
+                <span class="meal-label">
+                    YOUR DAILY MEAL PLAN
+                </span>
+
+                <h2>
+                    Healthy Meals For You
+                </h2>
+
+            </div>
+
+
+            <div class="meal-grid">
+
+
+                <!-- BREAKFAST -->
+
+                <div class="meal-card">
+
+                    <div class="meal-icon">
+                        ☀️
+                    </div>
+
+                    <span class="meal-label">
+                        BREAKFAST
+                    </span>
+
+                    <h3>
+                        Start Your Day
+                    </h3>
+
+                    <p>
+                        {{ diet_plan.breakfast }}
+                    </p>
+
+                    <div class="meal-calories">
+                        🔥 {{ diet_plan.breakfast_calories }} kcal
+                    </div>
+
+                </div>
+
+
+                <!-- LUNCH -->
+
+                <div class="meal-card">
+
+                    <div class="meal-icon">
+                        🍛
+                    </div>
+
+                    <span class="meal-label">
+                        LUNCH
+                    </span>
+
+                    <h3>
+                        Balanced Lunch
+                    </h3>
+
+                    <p>
+                        {{ diet_plan.lunch }}
+                    </p>
+
+                    <div class="meal-calories">
+                        🔥 {{ diet_plan.lunch_calories }} kcal
+                    </div>
+
+                </div>
+
+
+                <!-- SNACK -->
+
+                <div class="meal-card">
+
+                    <div class="meal-icon">
+                        🍎
+                    </div>
+
+                    <span class="meal-label">
+                        EVENING SNACK
+                    </span>
+
+                    <h3>
+                        Healthy Snack
+                    </h3>
+
+                    <p>
+                        {{ diet_plan.snack }}
+                    </p>
+
+                    <div class="meal-calories">
+                        🔥 {{ diet_plan.snack_calories }} kcal
+                    </div>
+
+                </div>
+
+
+                <!-- DINNER -->
+
+                <div class="meal-card">
+
+                    <div class="meal-icon">
+                        🌙
+                    </div>
+
+                    <span class="meal-label">
+                        DINNER
+                    </span>
+
+                    <h3>
+                        Light Dinner
+                    </h3>
+
+                    <p>
+                        {{ diet_plan.dinner }}
+                    </p>
+
+                    <div class="meal-calories">
+                        🔥 {{ diet_plan.dinner_calories }} kcal
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NUTRITION SUMMARY -->
+
+            <div class="nutrition-summary">
+
+                <div class="nutrition-heading">
+
+                    <h3>
+                        📊 Daily Nutrition Summary
+                    </h3>
+
+                    <p>
+                        Your estimated daily nutrition intake
+                    </p>
+
+                </div>
+
+
+                <div class="nutrition-grid">
+
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            🔥
+                        </span>
+
+                        <small>
+                            Calories
+                        </small>
+
+                        <strong>
+                            {{ diet_plan.total_calories }}
+                            kcal
+                        </strong>
+
+                    </div>
+
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            💪
+                        </span>
+
+                        <small>
+                            Protein
+                        </small>
+
+                        <strong>
+                            {{ diet_plan.protein }} g
+                        </strong>
+
+                    </div>
+
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            🌾
+                        </span>
+
+                        <small>
+                            Carbohydrates
+                        </small>
+
+                        <strong>
+                            {{ diet_plan.carbs }} g
+                        </strong>
+
+                    </div>
+
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            🥑
+                        </span>
+
+                        <small>
+                            Healthy Fats
+                        </small>
+
+                        <strong>
+                            {{ diet_plan.fats }} g
+                        </strong>
+
+                    </div>
+
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            💧
+                        </span>
+
+                        <small>
+                            Water
+                        </small>
+
+                        <strong>
+                            {{ diet_plan.water }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- WATER -->
+
+            <div class="water-card">
+
+                <div class="water-left">
+
+                    <div class="water-icon">
+                        💧
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Stay Hydrated
+                        </h4>
+
+                        <p>
+                            Drink enough water throughout the day.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="water-value">
+                    {{ diet_plan.water }}
+                </div>
+
+            </div>
+
+
+            <!-- HEALTH TIPS -->
+
+            <div class="health-tips">
+
+
+                <div class="tip-card">
+
+                    <div class="tip-icon">
+                        🥗
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Eat Balanced Meals
+                        </h4>
+
+                        <p>
+                            Include vegetables, fruits, protein
+                            and whole grains in your meals.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tip-card">
+
+                    <div class="tip-icon">
+                        🏃
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Stay Active
+                        </h4>
+
+                        <p>
+                            Combine a healthy diet with regular
+                            physical activity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="diet-actions">
+
+                <a href="/diet"
+                   class="diet-btn primary-diet-btn">
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Create New Plan
+
+                </a>
+
+
+                <a href="/dashboard"
+                   class="diet-btn secondary-diet-btn">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BACK -->
+
+        <div class="back-dashboard">
+
+            <a href="/dashboard">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

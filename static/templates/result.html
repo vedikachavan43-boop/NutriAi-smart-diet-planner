@@ -1,0 +1,362 @@
+{% extends "base.html" %}
+
+{% block title %}
+Your Diet Plan - NutriAI
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/diet.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="result-page">
+
+
+    <!-- HEADER -->
+
+    <div class="diet-header">
+
+        <div class="diet-badge">
+            ✨ Your Personalized Plan
+        </div>
+
+        <h1>
+            Your <span>{{ goal }}</span> Diet Plan
+        </h1>
+
+        <p>
+            A personalized daily meal plan created by NutriAI.
+        </p>
+
+    </div>
+
+
+    <!-- USER SUMMARY -->
+
+    <div class="user-summary">
+
+        <div>
+            <span>AGE</span>
+            <strong>{{ age }}</strong>
+            <small>Years</small>
+        </div>
+
+        <div>
+            <span>WEIGHT</span>
+            <strong>{{ weight }}</strong>
+            <small>kg</small>
+        </div>
+
+        <div>
+            <span>HEIGHT</span>
+            <strong>{{ height }}</strong>
+            <small>cm</small>
+        </div>
+
+        <div>
+            <span>DIET</span>
+            <strong>{{ diet_preference }}</strong>
+            <small>Preference</small>
+        </div>
+
+    </div>
+
+
+    <!-- MEALS -->
+
+    <div class="result-section-title">
+
+        <span>
+            DAILY MEAL PLAN
+        </span>
+
+        <h2>
+            Eat Well. Stay Healthy. 💚
+        </h2>
+
+    </div>
+
+
+    <div class="meal-grid">
+
+
+        <!-- BREAKFAST -->
+
+        <div class="meal-card">
+
+            <div class="meal-icon">
+                ☀️
+            </div>
+
+            <span class="meal-type">
+                BREAKFAST
+            </span>
+
+            <h3>
+                {{ plan.breakfast.title }}
+            </h3>
+
+            <p>
+                {{ plan.breakfast.food }}
+            </p>
+
+            <div class="calorie">
+                🔥 {{ plan.breakfast.calories }} kcal
+            </div>
+
+        </div>
+
+
+        <!-- LUNCH -->
+
+        <div class="meal-card">
+
+            <div class="meal-icon">
+                🍲
+            </div>
+
+            <span class="meal-type">
+                LUNCH
+            </span>
+
+            <h3>
+                {{ plan.lunch.title }}
+            </h3>
+
+            <p>
+                {{ plan.lunch.food }}
+            </p>
+
+            <div class="calorie">
+                🔥 {{ plan.lunch.calories }} kcal
+            </div>
+
+        </div>
+
+
+        <!-- SNACK -->
+
+        <div class="meal-card">
+
+            <div class="meal-icon">
+                🍎
+            </div>
+
+            <span class="meal-type">
+                EVENING SNACK
+            </span>
+
+            <h3>
+                {{ plan.snack.title }}
+            </h3>
+
+            <p>
+                {{ plan.snack.food }}
+            </p>
+
+            <div class="calorie">
+                🔥 {{ plan.snack.calories }} kcal
+            </div>
+
+        </div>
+
+
+        <!-- DINNER -->
+
+        <div class="meal-card">
+
+            <div class="meal-icon">
+                🌙
+            </div>
+
+            <span class="meal-type">
+                DINNER
+            </span>
+
+            <h3>
+                {{ plan.dinner.title }}
+            </h3>
+
+            <p>
+                {{ plan.dinner.food }}
+            </p>
+
+            <div class="calorie">
+                🔥 {{ plan.dinner.calories }} kcal
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NUTRITION -->
+
+    <div class="result-bottom">
+
+
+        <div class="summary-card">
+
+            <div class="summary-heading">
+
+                <div class="summary-icon">
+                    🔥
+                </div>
+
+                <div>
+                    <h3>
+                        Daily Nutrition
+                    </h3>
+
+                    <p>
+                        Estimated nutritional target
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="nutrition-list">
+
+                <div>
+                    <span>🔥 Calories</span>
+                    <strong>
+                        {{ plan.total_calories }} kcal
+                    </strong>
+                </div>
+
+                <div>
+                    <span>💪 Protein</span>
+                    <strong>
+                        {{ plan.protein }} g
+                    </strong>
+                </div>
+
+                <div>
+                    <span>🌾 Carbohydrates</span>
+                    <strong>
+                        {{ plan.carbs }} g
+                    </strong>
+                </div>
+
+                <div>
+                    <span>🥑 Healthy Fats</span>
+                    <strong>
+                        {{ plan.fat }} g
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WATER -->
+
+        <div class="summary-card hydration">
+
+            <div class="summary-icon">
+                💧
+            </div>
+
+            <h3>
+                Daily Water
+            </h3>
+
+            <div class="water-value">
+                {{ plan.water }}
+            </div>
+
+            <p>
+                Stay hydrated throughout the day.
+            </p>
+
+        </div>
+
+
+        <!-- TIPS -->
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                💚
+            </div>
+
+            <h3>
+                Healthy Habits
+            </h3>
+
+            <ul class="health-tips">
+
+                <li>
+                    Drink enough water
+                </li>
+
+                <li>
+                    Eat fresh fruits and vegetables
+                </li>
+
+                <li>
+                    Exercise regularly
+                </li>
+
+                <li>
+                    Avoid excess junk food
+                </li>
+
+                <li>
+                    Get 7–8 hours of sleep
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="plan-actions">
+
+        <a href="/diet"
+           class="new-plan-btn">
+
+            <i class="fa-solid fa-rotate"></i>
+
+            Create New Plan
+
+        </a>
+
+
+        <a href="/dashboard"
+           class="dashboard-btn">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <div class="diet-note">
+
+        💡 This plan provides general nutrition guidance.
+        For medical conditions or specific nutritional needs,
+        consult a qualified dietitian or healthcare professional.
+
+    </div>
+
+
+</section>
+
+{% endblock %}

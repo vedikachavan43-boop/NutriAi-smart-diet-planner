@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         PAGE TITLE
+    ========================== -->
+
+    <title>
+        {% block title %}
+        NutriAI
+        {% endblock %}
+    </title>
+
+
+    <!-- =========================
+         GOOGLE FONT
+    ========================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =========================
+         FONT AWESOME
+    ========================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- =========================
+         COMMON BASE CSS
+    ========================== -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+
+    <!-- =========================
+         PAGE SPECIFIC CSS
+    ========================== -->
+
+    {% block css %}
+    {% endblock %}
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+
+            <!-- =========================
+                 LOGO
+            ========================== -->
+
+            <a href="/" class="logo">
+
+                <span class="logo-icon">
+                    🌿
+                </span>
+
+                <span>
+                    Nutri<span>AI</span>
+                </span>
+
+            </a>
+
+
+            <!-- =========================
+                 NAVIGATION
+                 
+                 Home
+                 Register
+                 Login
+                 Dashboard
+                 About
+            ========================== -->
+
+            <div class="navbar-right">
+
+
+                <!-- HOME -->
+
+                <a href="/">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Home
+                    </span>
+
+                </a>
+
+
+                <!-- REGISTER -->
+
+                <a href="/register">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    <span>
+                        Register
+                    </span>
+
+                </a>
+
+
+                <!-- LOGIN -->
+
+                <a href="/login">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    <span>
+                        Login
+                    </span>
+
+                </a>
+
+
+                <!-- DASHBOARD -->
+
+                <a href="/dashboard">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <!-- ABOUT -->
+
+                <a href="/about">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <span>
+                        About
+                    </span>
+
+                </a>
+                <!-- LOGOUT -->
+
+<a href="/logout">
+
+    <i class="fa-solid fa-right-from-bracket"></i>
+
+    <span>
+        Logout
+    </span>
+
+</a>
+
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+
+        <div class="footer-container">
+
+
+            <!-- =========================
+                 BRAND
+            ========================== -->
+
+            <div class="footer-brand">
+
+                <h2>
+                    🌿 NutriAI
+                </h2>
+
+                <p>
+                    Your AI-powered smart nutrition
+                    and fitness companion.
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 QUICK LINKS
+            ========================== -->
+
+            <div class="footer-links">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/register">
+                    Register
+                </a>
+
+                <a href="/login">
+                    Login
+                </a>
+
+                <a href="/dashboard">
+                    Dashboard
+                </a>
+
+                <a href="/about">
+                    About
+                </a>
+
+            </div>
+
+
+            <!-- =========================
+                 FEATURES
+            ========================== -->
+
+            <div class="footer-links">
+
+                <h3>
+                    Features
+                </h3>
+
+                <a href="/bmi">
+                    BMI Calculator
+                </a>
+
+                <a href="/diet">
+                    AI Diet Plan
+                </a>
+
+                <a href="/recipes">
+                    Healthy Recipes
+                </a>
+
+                <a href="/history">
+                    Food History
+                </a>
+
+                <a href="/progress">
+                    Progress Tracking
+                </a>
+
+                <a href="/exercise">
+                    Exercise Planner
+                </a>
+
+            </div>
+
+
+            <!-- =========================
+                 FOOTER CONTACT
+            ========================== -->
+
+            <div class="footer-contact">
+
+                <h3>
+                    NutriAI
+                </h3>
+
+                <p>
+                    Eat Healthy.
+                    <br>
+                    Stay Fit.
+                    <br>
+                    Live Better.
+                </p>
+
+
+                <!-- SOCIAL ICONS -->
+
+                <div class="social-icons">
+
+                    <a href="#"
+                       aria-label="GitHub">
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+
+                    <a href="#"
+                       aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+
+                    <a href="#"
+                       aria-label="LinkedIn">
+
+                        <i class="fa-brands fa-linkedin"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FOOTER BOTTOM
+        ========================== -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 NutriAI.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

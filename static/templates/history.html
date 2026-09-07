@@ -1,0 +1,368 @@
+{% extends "base.html" %}
+
+{% block title %}
+Food History - NutriAI
+{% endblock %}
+
+
+{% block content %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/history.css') }}">
+
+
+<div class="page-container">
+
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <div class="page-header">
+
+        <div class="history-badge">
+            📜 NutriAI Records
+        </div>
+
+        <h1>
+            Food <span>History</span>
+        </h1>
+
+        <p>
+            View your previous food detections and calorie records.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HISTORY CARD
+    ====================================================== -->
+
+    <div class="history-card">
+
+
+        <!-- TOP SECTION -->
+
+        <div class="history-top">
+
+            <div>
+
+                <h2>
+                    Your Food Records
+                </h2>
+
+                <p>
+                    Your recently detected food and nutrition details.
+                </p>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="history-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="historySearch"
+                    placeholder="Search food..."
+                    onkeyup="searchHistory()">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TABLE
+        ================================================== -->
+
+        <div class="table-container">
+
+            <table id="historyTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Food
+                        </th>
+
+                        <th>
+                            Calories
+                        </th>
+
+                        <th>
+                            Protein
+                        </th>
+
+                        <th>
+                            Carbs
+                        </th>
+
+                        <th>
+                            Fat
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    {% if records %}
+
+
+                        {% for record in records %}
+
+                        <tr>
+
+                            <!-- FOOD -->
+
+                            <td>
+
+                                <div class="food-name">
+
+                                    <span class="food-icon">
+                                        🍽️
+                                    </span>
+
+                                    <strong>
+                                        {{ record["food"] }}
+                                    </strong>
+
+                                </div>
+
+                            </td>
+
+
+                            <!-- CALORIES -->
+
+                            <td>
+
+                                <span class="calorie-value">
+                                    🔥 {{ record["calories"] }} kcal
+                                </span>
+
+                            </td>
+
+
+                            <!-- PROTEIN -->
+
+                            <td>
+
+                                <span class="nutrition-value">
+                                    💪 {{ record["protein"] }} g
+                                </span>
+
+                            </td>
+
+
+                            <!-- CARBS -->
+
+                            <td>
+
+                                <span class="nutrition-value">
+                                    🌾 {{ record["carbs"] }} g
+                                </span>
+
+                            </td>
+
+
+                            <!-- FAT -->
+
+                            <td>
+
+                                <span class="nutrition-value">
+                                    🥑 {{ record["fat"] }} g
+                                </span>
+
+                            </td>
+
+
+                            <!-- DATE -->
+
+                            <td>
+
+                                <span class="date-value">
+                                    🕒 {{ record["date_time"] }}
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+
+                    {% else %}
+
+
+                        <!-- NO RECORDS -->
+
+                        <tr>
+
+                            <td
+                                colspan="6"
+                                class="no-history">
+
+                                <div class="empty-history">
+
+                                    <div class="empty-icon">
+                                        🍽️
+                                    </div>
+
+                                    <h3>
+                                        No Food History Yet
+                                    </h3>
+
+                                    <p>
+                                        Detect your first food to see
+                                        your nutrition record here.
+                                    </p>
+
+                                    <a
+                                        href="/"
+                                        class="detect-btn">
+
+                                        <i class="fa-solid fa-camera"></i>
+
+                                        Detect Food
+
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                    {% endif %}
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BACK TO DASHBOARD
+    ====================================================== -->
+
+    <div class="history-actions">
+
+        <a
+            href="/"
+            class="history-btn primary">
+
+            <i class="fa-solid fa-camera"></i>
+
+            Detect Food
+
+        </a>
+
+
+        <a
+            href="/dashboard"
+            class="history-btn secondary">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     SEARCH SCRIPT
+========================================================= -->
+
+<script>
+
+function searchHistory() {
+
+    let input =
+        document
+        .getElementById("historySearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    let rows =
+        document.querySelectorAll(
+            "#historyTable tbody tr"
+        );
+
+
+    rows.forEach(function(row) {
+
+        /*
+         * Ignore the empty-history row
+         */
+
+        if (
+            row.classList.contains("empty-row")
+        ) {
+            return;
+        }
+
+
+        let foodCell =
+            row.querySelector(".food-name");
+
+
+        if (!foodCell) {
+            return;
+        }
+
+
+        let food =
+            foodCell
+            .textContent
+            .toLowerCase();
+
+
+        if (food.includes(input)) {
+
+            row.style.display = "";
+
+        } else {
+
+            row.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,909 @@
+{% extends "base.html" %}
+
+{% block title %}
+Healthy Recipes - NutriAI
+{% endblock %}
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/recipes.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="recipes-page">
+
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <div class="recipes-header">
+
+        <div class="recipes-badge">
+            🌿 NutriAI Healthy Kitchen
+        </div>
+
+        <h1>
+            Discover
+            <span>Healthy Recipes</span>
+        </h1>
+
+        <p>
+            Explore delicious and nutritious recipes
+            from your favorite foods.
+        </p>
+
+    </div>
+
+
+
+    <!-- =========================================
+         SEARCH BAR
+    ========================================== -->
+
+    <div class="recipe-search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="recipeSearch"
+            placeholder="Search your favourite food..."
+        >
+
+    </div>
+
+
+
+    <!-- =========================================
+         CATEGORY FILTERS
+    ========================================== -->
+
+    <div class="recipe-filters">
+
+        <button
+            class="filter-btn active"
+            data-category="all">
+
+            All
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Breakfast">
+
+            🍳 Breakfast
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Main Course">
+
+            🍛 Main Course
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Healthy Meal">
+
+            🥗 Healthy
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Snack">
+
+            🍎 Snacks
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Side Dish">
+
+            🥣 Side Dish
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Non-Veg">
+
+            🍗 Non-Veg
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================================
+         RECIPE COUNT
+    ========================================== -->
+
+    <div class="recipe-count">
+
+        <i class="fa-solid fa-utensils"></i>
+
+        <span id="recipeCount">
+            {{ recipes|length }}
+        </span>
+
+        Recipes Available
+
+    </div>
+
+
+
+    <!-- =========================================
+         RECIPE GRID
+    ========================================== -->
+
+    <div
+        class="recipes-grid"
+        id="recipesGrid"
+    >
+
+        {% for recipe in recipes %}
+
+
+        <!-- =====================================
+             RECIPE CARD
+        ====================================== -->
+
+        <div
+            class="recipe-card"
+            data-category="{{ recipe.category }}"
+            data-name="{{ recipe.name|lower }}"
+        >
+
+
+            <!-- FOOD ICON / IMAGE AREA -->
+
+            <div class="recipe-image">
+
+                <div class="food-icon">
+                    {{ recipe.icon }}
+                </div>
+
+
+                <div class="recipe-category">
+                    {{ recipe.category }}
+                </div>
+
+            </div>
+
+
+
+            <!-- CARD CONTENT -->
+
+            <div class="recipe-content">
+
+
+                <!-- FOOD NAME -->
+
+                <h2>
+                    {{ recipe.name }}
+                </h2>
+
+
+                <!-- DESCRIPTION -->
+
+                <p class="recipe-description">
+
+                    {{ recipe.description }}
+
+                </p>
+
+
+
+                <!-- =================================
+                     NUTRITION INFORMATION
+                ================================== -->
+
+                <div class="nutrition-row">
+
+
+                    <!-- CALORIES -->
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            🔥
+                        </span>
+
+                        <strong>
+                            {{ recipe.calories }}
+                        </strong>
+
+                        <small>
+                            Calories
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- PROTEIN -->
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            💪
+                        </span>
+
+                        <strong>
+                            {{ recipe.protein }}
+                        </strong>
+
+                        <small>
+                            Protein
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- CARBS -->
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            🌾
+                        </span>
+
+                        <strong>
+                            {{ recipe.carbs }}
+                        </strong>
+
+                        <small>
+                            Carbs
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- FAT -->
+
+                    <div class="nutrition-item">
+
+                        <span>
+                            🥑
+                        </span>
+
+                        <strong>
+                            {{ recipe.fat }}
+                        </strong>
+
+                        <small>
+                            Fat
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     COOKING TIME
+                ================================== -->
+
+                <div class="recipe-time">
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    Preparation Time:
+
+                    <strong>
+                        {{ recipe.time }}
+                    </strong>
+
+                </div>
+
+
+
+                <!-- =================================
+                     INGREDIENTS
+                ================================== -->
+
+                <div class="ingredients">
+
+                    <h3>
+                        🥗 Ingredients
+                    </h3>
+
+                    <p>
+                        {{ recipe.ingredients }}
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================
+                     VIEW RECIPE BUTTON
+                ================================== -->
+
+                <button
+                    type="button"
+                    class="view-recipe-btn"
+
+                    data-name="{{ recipe.name }}"
+                    data-description="{{ recipe.description }}"
+                    data-ingredients="{{ recipe.ingredients }}"
+                    data-time="{{ recipe.time }}"
+                    data-calories="{{ recipe.calories }}"
+                    data-protein="{{ recipe.protein }}"
+
+                    onclick="showRecipeFromButton(this)"
+                >
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    View Recipe
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+        {% endfor %}
+
+    </div>
+
+
+
+    <!-- =========================================
+         NO RESULTS
+    ========================================== -->
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+
+        <div class="no-results-icon">
+            🔍
+        </div>
+
+        <h3>
+            No Recipe Found
+        </h3>
+
+        <p>
+            Try searching for another food.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RECIPE MODAL
+====================================================== -->
+
+<div
+    class="recipe-modal"
+    id="recipeModal"
+>
+
+
+    <div class="modal-box">
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button
+            type="button"
+            class="close-modal"
+            onclick="closeRecipe()"
+        >
+
+            ×
+
+        </button>
+
+
+
+        <!-- ICON -->
+
+        <div class="modal-icon">
+            🍽️
+        </div>
+
+
+
+        <!-- LABEL -->
+
+        <span class="modal-label">
+            NUTRIAI RECIPE
+        </span>
+
+
+
+        <!-- TITLE -->
+
+        <h2 id="modalTitle">
+            Recipe
+        </h2>
+
+
+
+        <!-- DESCRIPTION -->
+
+        <p
+            class="modal-description"
+            id="modalDescription"
+        >
+        </p>
+
+
+
+        <!-- =================================
+             BASIC INFORMATION
+        ================================== -->
+
+        <div class="modal-info">
+
+
+            <div>
+
+                <span>
+                    ⏱️
+                </span>
+
+                <strong id="modalTime">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    🔥
+                </span>
+
+                <strong id="modalCalories">
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    💪
+                </span>
+
+                <strong id="modalProtein">
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             INGREDIENTS
+        ================================== -->
+
+        <div class="modal-section">
+
+            <h3>
+                🥗 Ingredients
+            </h3>
+
+            <p id="modalIngredients">
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================
+             PREPARATION
+        ================================== -->
+
+        <div class="modal-section">
+
+            <h3>
+                👨‍🍳 Preparation
+            </h3>
+
+            <p>
+                Prepare all the ingredients properly.
+                Cook using a moderate amount of oil
+                and suitable spices. Serve fresh and
+                enjoy your nutritious meal.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================
+             HEALTHY TIP
+        ================================== -->
+
+        <div class="healthy-tip">
+
+            💡
+
+            <strong>
+                Healthy Tip:
+            </strong>
+
+            Choose fresh ingredients and maintain
+            a balanced portion size for a healthier meal.
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =========================================
+   GET ELEMENTS
+========================================= */
+
+const searchInput =
+    document.getElementById("recipeSearch");
+
+const recipeCards =
+    document.querySelectorAll(".recipe-card");
+
+const noResults =
+    document.getElementById("noResults");
+
+const recipeCount =
+    document.getElementById("recipeCount");
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+
+
+/* =========================================
+   SEARCH FUNCTION
+========================================= */
+
+searchInput.addEventListener(
+    "input",
+    function () {
+
+        const searchText =
+            this.value.toLowerCase().trim();
+
+        let visibleCount = 0;
+
+
+        recipeCards.forEach(
+            function (card) {
+
+                const foodName =
+                    card.dataset.name;
+
+
+                if (
+                    foodName.includes(searchText)
+                ) {
+
+                    card.style.display = "";
+
+                    visibleCount++;
+
+                }
+
+                else {
+
+                    card.style.display = "none";
+
+                }
+
+            }
+        );
+
+
+        recipeCount.innerText =
+            visibleCount;
+
+
+        if (visibleCount === 0) {
+
+            noResults.style.display =
+                "block";
+
+        }
+
+        else {
+
+            noResults.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   CATEGORY FILTER
+========================================= */
+
+filterButtons.forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+
+                /* REMOVE ACTIVE */
+
+                filterButtons.forEach(
+                    function (btn) {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                /* ADD ACTIVE */
+
+                this.classList.add(
+                    "active"
+                );
+
+
+                const selectedCategory =
+                    this.dataset.category;
+
+                let visibleCount = 0;
+
+
+                recipeCards.forEach(
+                    function (card) {
+
+                        const cardCategory =
+                            card.dataset.category;
+
+
+                        if (
+                            selectedCategory === "all" ||
+                            cardCategory === selectedCategory
+                        ) {
+
+                            card.style.display = "";
+
+                            visibleCount++;
+
+                        }
+
+                        else {
+
+                            card.style.display = "none";
+
+                        }
+
+                    }
+                );
+
+
+                recipeCount.innerText =
+                    visibleCount;
+
+
+                if (visibleCount === 0) {
+
+                    noResults.style.display =
+                        "block";
+
+                }
+
+                else {
+
+                    noResults.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================
+   SHOW RECIPE
+========================================= */
+
+function showRecipeFromButton(button) {
+
+
+    const name =
+        button.dataset.name;
+
+    const description =
+        button.dataset.description;
+
+    const ingredients =
+        button.dataset.ingredients;
+
+    const time =
+        button.dataset.time;
+
+    const calories =
+        button.dataset.calories;
+
+    const protein =
+        button.dataset.protein;
+
+
+    showRecipe(
+        name,
+        description,
+        ingredients,
+        time,
+        calories,
+        protein
+    );
+
+}
+
+
+
+/* =========================================
+   OPEN RECIPE MODAL
+========================================= */
+
+function showRecipe(
+    name,
+    description,
+    ingredients,
+    time,
+    calories,
+    protein
+) {
+
+
+    document.getElementById(
+        "modalTitle"
+    ).innerText = name;
+
+
+    document.getElementById(
+        "modalDescription"
+    ).innerText = description;
+
+
+    document.getElementById(
+        "modalIngredients"
+    ).innerText = ingredients;
+
+
+    document.getElementById(
+        "modalTime"
+    ).innerText = time;
+
+
+    document.getElementById(
+        "modalCalories"
+    ).innerText = calories;
+
+
+    document.getElementById(
+        "modalProtein"
+    ).innerText = protein;
+
+
+    document.getElementById(
+        "recipeModal"
+    ).classList.add("show");
+
+}
+
+
+
+/* =========================================
+   CLOSE MODAL
+========================================= */
+
+function closeRecipe() {
+
+    document.getElementById(
+        "recipeModal"
+    ).classList.remove("show");
+
+}
+
+
+
+/* =========================================
+   CLOSE WHEN CLICKING OUTSIDE
+========================================= */
+
+window.addEventListener(
+    "click",
+    function (event) {
+
+        const modal =
+            document.getElementById(
+                "recipeModal"
+            );
+
+
+        if (event.target === modal) {
+
+            closeRecipe();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   CLOSE WITH ESC KEY
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+
+            closeRecipe();
+
+        }
+
+    }
+);
+
+</script>
+
+
+{% endblock %}

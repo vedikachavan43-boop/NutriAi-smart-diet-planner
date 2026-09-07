@@ -1,0 +1,480 @@
+/* =========================================================
+   NUTRIAI FOOD DETECTION
+========================================================= */
+
+.food-detection-page {
+    width: 100%;
+    padding: 50px 30px 70px;
+    background: #f0fdf4;
+}
+
+/* HEADER */
+
+.detection-header {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.detection-badge {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 30px;
+
+    background: #dcfce7;
+    border: 1px solid #86efac;
+
+    color: #166534;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.detection-header h1 {
+    margin: 18px 0 10px;
+
+    font-size: 42px;
+    color: #0f172a;
+}
+
+.detection-header h1 span {
+    color: #16a34a;
+}
+
+.detection-header p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   MAIN TWO CARDS
+========================================================= */
+
+.detection-container {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+}
+
+
+/* CARDS */
+
+.upload-card,
+.info-card {
+    width: 100%;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    background: #ffffff;
+
+    border: 2px solid #bbf7d0;
+
+    box-shadow: 0 12px 30px rgba(22, 101, 52, 0.10);
+}
+
+
+/* =========================================================
+   UPLOAD CARD
+========================================================= */
+
+.upload-card {
+    text-align: center;
+}
+
+.upload-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #dcfce7;
+
+    font-size: 32px;
+}
+
+.upload-card h2 {
+    margin-bottom: 8px;
+
+    color: #0f172a;
+    font-size: 24px;
+}
+
+.upload-card > p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* IMAGE PREVIEW */
+
+.image-preview {
+    width: 100%;
+    height: 260px;
+
+    margin: 22px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 2px dashed #86efac;
+    border-radius: 18px;
+
+    background: #f0fdf4;
+}
+
+.preview-placeholder {
+    text-align: center;
+    color: #64748b;
+}
+
+.preview-placeholder span {
+    display: block;
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.preview-placeholder small {
+    font-size: 12px;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* CHOOSE BUTTON */
+
+.choose-image-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 12px 22px;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    border: 1.5px solid #22c55e;
+
+    color: #166534;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.choose-image-btn:hover {
+    background: #dcfce7;
+}
+
+
+/* FILE INFO */
+
+.file-info {
+    margin: 10px 0 18px !important;
+
+    color: #94a3b8 !important;
+
+    font-size: 12px !important;
+}
+
+
+/* DETECT BUTTON */
+
+.detect-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #22c55e;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.detect-btn:hover {
+    background: #16a34a;
+}
+
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.info-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: #dcfce7;
+
+    font-size: 25px;
+}
+
+.info-heading h2 {
+    margin: 0;
+
+    font-size: 22px;
+    color: #0f172a;
+}
+
+.info-heading p {
+    margin: 3px 0 0;
+
+    color: #64748b;
+    font-size: 12px;
+}
+
+
+/* RESULT */
+
+.result-placeholder {
+    flex: 1;
+
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: #f0fdf4;
+
+    border: 2px dashed #86efac;
+}
+
+.result-icon {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    font-size: 35px;
+
+    border: 1px solid #bbf7d0;
+}
+
+.result-placeholder h3 {
+    margin-bottom: 8px;
+
+    color: #166534;
+
+    font-size: 21px;
+}
+
+.result-placeholder p {
+    max-width: 370px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how-section {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 65px auto 0;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+.section-heading span {
+    color: #16a34a;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin-top: 8px;
+
+    color: #0f172a;
+
+    font-size: 30px;
+}
+
+
+/* STEPS */
+
+.steps-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.step-card {
+    position: relative;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    border: 2px solid #bbf7d0;
+
+    box-shadow: 0 8px 22px rgba(22, 101, 52, 0.07);
+}
+
+.step-number {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    color: #86efac;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: #dcfce7;
+
+    font-size: 27px;
+}
+
+.step-card h3 {
+    margin-bottom: 7px;
+
+    color: #0f172a;
+
+    font-size: 18px;
+}
+
+.step-card p {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .detection-container {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .food-detection-page {
+        padding: 35px 15px 50px;
+    }
+
+    .detection-header h1 {
+        font-size: 30px;
+    }
+
+    .upload-card,
+    .info-card {
+        padding: 20px;
+    }
+
+}

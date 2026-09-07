@@ -1,0 +1,560 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard - NutriAI
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+
+        <!-- =================================================
+             DASHBOARD HERO
+        ================================================== -->
+
+        <div class="dashboard-hero">
+
+            <div class="dashboard-hero-content">
+
+                <span class="dashboard-badge">
+                    🌿 NutriAI Dashboard
+                </span>
+
+                <h1>
+                    Welcome to Your
+                    <span>Health Dashboard</span>
+                </h1>
+
+                <p>
+                    Manage your nutrition, calories, BMI and healthy
+                    lifestyle with the help of NutriAI.
+                </p>
+
+
+                <div class="hero-features">
+
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">🍴</div>
+                        <span>Track Foods</span>
+                    </div>
+
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">🔥</div>
+                        <span>Count Calories</span>
+                    </div>
+
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">⚖️</div>
+                        <span>Check BMI</span>
+                    </div>
+
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">🧠</div>
+                        <span>AI Diet Plan</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO IMAGE -->
+
+            <div class="dashboard-hero-image">
+
+                <img
+                    src="{{ url_for('static', filename='images/dashboard-hero.png') }}"
+                    alt="NutriAI Dashboard">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HEALTH SNAPSHOT
+        ================================================== -->
+
+        <section class="health-snapshot">
+
+            <div class="snapshot-content">
+
+                <div class="snapshot-icon">
+                    🌿
+                </div>
+
+                <div class="snapshot-text">
+
+                    <span class="snapshot-label">
+                        TODAY'S HEALTH SNAPSHOT
+                    </span>
+
+                    <h2>
+                        Take care of your body,
+                        <span>one healthy choice at a time.</span>
+                    </h2>
+
+                    <p>
+                        Stay hydrated, choose nutritious foods and
+                        keep tracking your health with NutriAI.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="snapshot-items">
+
+                <div class="snapshot-item">
+
+                    <div class="snapshot-item-icon">
+                        💧
+                    </div>
+
+                    <div>
+                        <strong>Stay Hydrated</strong>
+
+                        <small>
+                            Drink enough water today
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="snapshot-item">
+
+                    <div class="snapshot-item-icon">
+                        🥗
+                    </div>
+
+                    <div>
+                        <strong>Eat Balanced</strong>
+
+                        <small>
+                            Choose nutritious meals
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="snapshot-item">
+
+                    <div class="snapshot-item-icon">
+                        🤖
+                    </div>
+
+                    <div>
+                        <strong>AI Guidance</strong>
+
+                        <small>
+                            Get personalized insights
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DASHBOARD OVERVIEW
+        ================================================== -->
+
+        <div class="overview-header">
+
+            <h2>
+                Dashboard Overview
+            </h2>
+
+            <p>
+                Your health and nutrition summary
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             STATS CARDS
+        ================================================== -->
+            <!-- TOTAL FOODS -->
+
+           <div class="stats-grid">
+
+    <!-- TOTAL USERS -->
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            👥
+        </div>
+
+        <div class="stat-info">
+
+            <span>Total Users</span>
+
+            <h3>
+                {{ total_users }}
+            </h3>
+
+            <small>
+                Registered users
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOTAL FOODS -->
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🍽️
+        </div>
+
+        <div class="stat-info">
+
+            <span>Total Foods</span>
+
+            <h3>
+                {{ total_foods }}
+            </h3>
+
+            <small>
+                Foods detected
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- CALORIES -->
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🔥
+        </div>
+
+        <div class="stat-info">
+
+            <span>Calories</span>
+
+            <h3>
+                {{ total_calories }}
+            </h3>
+
+            <small>
+                kcal tracked
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- HISTORY -->
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            📜
+        </div>
+
+        <div class="stat-info">
+
+            <span>History</span>
+
+            <h3>
+                {{ history_count }}
+            </h3>
+
+            <small>
+                Records saved
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- BMI -->
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            ⚖️
+        </div>
+
+        <div class="stat-info">
+
+            <span>BMI</span>
+
+            <h3>
+                {% if bmi %}
+                    {{ bmi }}
+                {% else %}
+                    --
+                {% endif %}
+            </h3>
+
+            <small>
+                Your BMI
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+        ================================================== -->
+
+        <div class="quick-actions-header">
+
+            <div>
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+                <p>
+                    Explore NutriAI features
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+
+            <!-- AI FOOD DETECTION -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    🤖
+                </div>
+
+                <div class="dashboard-card-content">
+
+                    <h3>
+                        AI Food Detection
+                    </h3>
+
+                    <p>
+                        Upload a food image and identify
+                        the food using Artificial Intelligence.
+                    </p>
+
+                    <a href="{{ url_for('food_detection') }}"
+                       class="open-btn">
+
+                        Open
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BMI -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    ⚖️
+                </div>
+
+                <div class="dashboard-card-content">
+
+                    <h3>
+                        BMI Calculator
+                    </h3>
+
+                    <p>
+                        Calculate your BMI and understand
+                        your health category.
+                    </p>
+
+                    <a href="{{ url_for('bmi') }}"
+                       class="open-btn">
+
+                        Open
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI DIET -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    🧠
+                </div>
+
+                <div class="dashboard-card-content">
+
+                    <h3>
+                        AI Diet Plan
+                    </h3>
+
+                    <p>
+                        Get personalized diet recommendations
+                        based on your health goals.
+                    </p>
+
+                    <a href="{{ url_for('diet') }}"
+                       class="open-btn">
+
+                        Open
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HEALTHY RECIPES -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    🍽️
+                </div>
+
+                <div class="dashboard-card-content">
+
+                    <h3>
+                        Healthy Recipes
+                    </h3>
+
+                    <p>
+                        Discover healthy, nutritious and
+                        delicious recipes.
+                    </p>
+
+                    <a href="{{ url_for('recipes') }}"
+                       class="open-btn">
+
+                        Open
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOOD HISTORY -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    📜
+                </div>
+
+                <div class="dashboard-card-content">
+
+                    <h3>
+                        Food History
+                    </h3>
+
+                    <p>
+                        View your previous food detection
+                        and nutrition records.
+                    </p>
+
+                    <a href="{{ url_for('history') }}"
+                       class="open-btn">
+
+                        Open
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROGRESS -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    📈
+                </div>
+
+                <div class="dashboard-card-content">
+
+                    <h3>
+                        Progress Tracking
+                    </h3>
+
+                    <p>
+                        Track your nutrition and health
+                        progress over time.
+                    </p>
+
+                    <a href="{{ url_for('progress') }}"
+                       class="open-btn">
+
+                        Open
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

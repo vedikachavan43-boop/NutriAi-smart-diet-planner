@@ -1,0 +1,848 @@
+/* =========================================
+   NUTRIAI - PROGRESS PAGE
+========================================= */
+
+.progress-page {
+
+    min-height: 100vh;
+
+    padding: 55px 7% 80px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #dcfce7,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ffffff,
+            #ecfdf5
+        );
+
+    color: #0f172a;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.progress-header {
+
+    max-width: 1200px;
+
+    margin: 0 auto 30px;
+}
+
+.progress-header h1 {
+
+    font-size: 46px;
+
+    line-height: 1.15;
+
+    margin: 0 0 12px;
+
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+.progress-header h1 span {
+
+    color: #15803d;
+}
+
+.progress-header p {
+
+    margin: 0;
+
+    color: #334e68;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   SUMMARY GRID
+========================================= */
+
+.summary-grid {
+
+    max-width: 1200px;
+
+    margin: 0 auto 22px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   SUMMARY CARD
+========================================= */
+
+.summary-card {
+
+    position: relative;
+
+    padding: 22px;
+
+    min-height: 175px;
+
+    background: rgba(255,255,255,0.95);
+
+    border: 2px solid #166534;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(15,23,42,0.08);
+
+    transition: 0.3s ease;
+
+    overflow: hidden;
+}
+
+.summary-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    right: -30px;
+
+    top: -30px;
+
+    opacity: 0.65;
+}
+
+.summary-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(21,128,61,0.16);
+}
+
+
+/* ICON */
+
+.summary-icon {
+
+    width: 64px;
+
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.summary-card h3 {
+
+    margin: 0 0 8px;
+
+    font-size: 18px;
+
+    color: #0f172a;
+}
+
+.summary-card strong {
+
+    display: block;
+
+    font-size: 34px;
+
+    color: #15803d;
+
+    line-height: 1;
+
+    margin-bottom: 8px;
+}
+
+.summary-card p {
+
+    margin: 0;
+
+    color: #334e68;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MAIN AREA
+========================================= */
+
+.progress-main {
+
+    max-width: 1200px;
+
+    margin: 0 auto 28px;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   CHART CARD
+========================================= */
+
+.chart-card {
+
+    background: rgba(255,255,255,0.96);
+
+    border: 2px solid #166534;
+
+    border-radius: 15px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(15,23,42,0.08);
+}
+
+
+/* TITLE */
+
+.chart-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.chart-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+
+    font-size: 28px;
+}
+
+.chart-title h2 {
+
+    margin: 0 0 5px;
+
+    font-size: 24px;
+
+    color: #0f172a;
+}
+
+.chart-title p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #334e68;
+}
+
+
+/* =========================================
+   CHART
+========================================= */
+
+.chart-area {
+
+    height: 300px;
+
+    display: flex;
+
+    gap: 12px;
+}
+
+
+/* Y AXIS */
+
+.y-axis {
+
+    width: 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding-bottom: 35px;
+
+    color: #17324d;
+
+    font-size: 13px;
+
+    text-align: right;
+}
+
+
+/* BARS */
+
+.bars-area {
+
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-around;
+
+    padding: 0 5px 35px;
+
+    border-bottom: 1px solid #cbd5e1;
+}
+
+
+/* GRID LINES */
+
+.grid-line {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    border-top: 1px dashed #cbd5e1;
+
+    opacity: 0.8;
+}
+
+.line1 { top: 0; }
+
+.line2 { top: 16.6%; }
+
+.line3 { top: 33.2%; }
+
+.line4 { top: 49.8%; }
+
+.line5 { top: 66.4%; }
+
+.line6 { top: 83%; }
+
+.line7 { bottom: 35px; }
+
+
+/* BAR COLUMN */
+
+.bar-column {
+
+    height: 100%;
+
+    width: 11%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    flex-direction: column;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* BAR */
+
+.bar {
+
+    width: 34px;
+
+    min-height: 30px;
+
+    border-radius:
+        7px 7px 2px 2px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #4ade80,
+            #15803d
+        );
+
+    box-shadow:
+        0 5px 12px
+        rgba(21,128,61,0.18);
+
+    transition: 0.3s ease;
+}
+
+.bar:hover {
+
+    transform: scaleX(1.12);
+
+    background:
+        linear-gradient(
+            to bottom,
+            #22c55e,
+            #166534
+        );
+}
+
+.bar-column span {
+
+    margin-top: 10px;
+
+    color: #17324d;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   GOAL CARD
+========================================= */
+
+.goal-card {
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #166534,
+            #15803d,
+            #16a34a
+        );
+
+    color: white;
+
+    box-shadow:
+        0 15px 35px
+        rgba(21,128,61,0.25);
+
+    border: 2px solid #14532d;
+}
+
+.goal-card h2 {
+
+    margin: 0 0 6px;
+
+    font-size: 25px;
+}
+
+.goal-card > p {
+
+    margin: 0 0 18px;
+
+    font-size: 15px;
+
+    color: #dcfce7;
+}
+
+
+/* =========================================
+   CIRCLE
+========================================= */
+
+.circle-progress {
+
+    width: 150px;
+
+    height: 150px;
+
+    margin: 10px auto 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        conic-gradient(
+            white 0deg 270deg,
+            rgba(255,255,255,0.25) 270deg 360deg
+        );
+
+    position: relative;
+}
+
+.circle-progress::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 112px;
+
+    height: 112px;
+
+    border-radius: 50%;
+
+    background: #116b35;
+}
+
+.circle-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 31px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   GOAL ROW
+========================================= */
+
+.goal-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 15px;
+
+    margin-top: 10px;
+
+    border-radius: 9px;
+
+    background: rgba(255,255,255,0.14);
+
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.goal-row span {
+
+    font-size: 14px;
+}
+
+.goal-row strong {
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   HEALTH INSIGHTS
+========================================= */
+
+.insights-section {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+.insights-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.insights-heading span {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.insights-heading h2 {
+
+    margin: 0;
+
+    font-size: 25px;
+
+    color: #0f172a;
+}
+
+
+/* =========================================
+   INSIGHT GRID
+========================================= */
+
+.insights-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   INSIGHT CARD
+========================================= */
+
+.insight-card {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    background: rgba(255,255,255,0.96);
+
+    border: 2px solid #166534;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(15,23,42,0.07);
+
+    transition: 0.3s ease;
+}
+
+.insight-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 28px
+        rgba(21,128,61,0.13);
+}
+
+.insight-icon {
+
+    min-width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+
+    font-size: 27px;
+}
+
+.insight-card h3 {
+
+    margin: 2px 0 7px;
+
+    color: #15803d;
+
+    font-size: 17px;
+}
+
+.insight-card p {
+
+    margin: 0;
+
+    color: #334e68;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .summary-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .progress-main {
+
+        grid-template-columns: 1fr;
+    }
+
+    .insights-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .progress-page {
+
+        padding: 35px 18px 60px;
+    }
+
+    .progress-header h1 {
+
+        font-size: 34px;
+    }
+
+    .progress-header p {
+
+        font-size: 14px;
+    }
+
+    .summary-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .chart-card {
+
+        padding: 17px;
+    }
+
+    .chart-title h2 {
+
+        font-size: 19px;
+    }
+
+    .chart-area {
+
+        height: 240px;
+    }
+
+    .y-axis {
+
+        width: 45px;
+
+        font-size: 10px;
+    }
+
+    .bar {
+
+        width: 22px;
+    }
+
+    .bar-column span {
+
+        font-size: 11px;
+    }
+
+    .goal-card {
+
+        padding: 20px;
+    }
+
+    .circle-progress {
+
+        width: 125px;
+
+        height: 125px;
+    }
+
+    .circle-progress::before {
+
+        width: 92px;
+
+        height: 92px;
+    }
+
+    .insight-card {
+
+        padding: 16px;
+    }
+}

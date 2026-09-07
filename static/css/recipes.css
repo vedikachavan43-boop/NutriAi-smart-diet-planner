@@ -1,0 +1,1359 @@
+/* =========================================================
+   NUTRIAI - HEALTHY RECIPES
+   COMPLETE CSS
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.recipe-page,
+.recipe-page * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.recipe-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 55px 6%;
+    background:
+        radial-gradient(circle at top left, #dcfce7 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #bbf7d0 0%, transparent 35%),
+        #f0fdf4;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.recipes-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 35px;
+}
+
+.recipe-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 20px;
+
+    border: 1.5px solid #166534;
+    border-radius: 30px;
+
+    background: #dcfce7;
+    color: #166534;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    box-shadow: 0 5px 15px rgba(22, 101, 52, 0.10);
+}
+
+.recipes-header h1 {
+    margin: 18px 0 10px;
+
+    font-size: clamp(34px, 5vw, 58px);
+
+    line-height: 1.15;
+
+    color: #0f172a;
+
+    font-weight: 700;
+}
+
+.recipes-header h1 span {
+    color: #15803d;
+}
+
+.recipes-header p {
+    color: #64748b;
+
+    font-size: 15px;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.recipe-search {
+    max-width: 850px;
+
+    margin: 0 auto 25px;
+
+    position: relative;
+}
+
+.recipe-search i {
+    position: absolute;
+
+    left: 22px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #15803d;
+
+    font-size: 18px;
+}
+
+.recipe-search input {
+    width: 100%;
+
+    height: 58px;
+
+    padding: 0 55px;
+
+    border: 1.5px solid #15803d;
+
+    border-radius: 18px;
+
+    outline: none;
+
+    background: rgba(255,255,255,0.95);
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 8px 25px rgba(22, 101, 52, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.recipe-search input:focus {
+    border-color: #166534;
+
+    box-shadow:
+        0 0 0 4px rgba(34,197,94,0.12),
+        0 10px 30px rgba(22,101,52,0.10);
+}
+
+.recipe-search input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
+
+.filter-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 28px;
+}
+
+.filter-btn {
+    border: 1.5px solid #166534;
+
+    background: #ffffff;
+
+    color: #166534;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #dcfce7;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(22,101,52,0.12);
+}
+
+.filter-btn.active {
+    background: linear-gradient(
+        135deg,
+        #166534,
+        #22c55e
+    );
+
+    color: white;
+
+    border-color: #166534;
+
+    box-shadow:
+        0 7px 18px rgba(22,101,52,0.22);
+}
+
+
+/* =========================================================
+   RECIPE COUNT
+========================================================= */
+
+.recipe-count {
+    text-align: center;
+
+    color: #166534;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 28px;
+}
+
+.recipe-count i {
+    margin-right: 6px;
+}
+
+
+/* =========================================================
+   RECIPE GRID
+========================================================= */
+
+.recipes-grid {
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   RECIPE CARD
+========================================================= */
+
+.recipe-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: rgba(255,255,255,0.95);
+
+    border: 1.5px solid #166534;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 30px rgba(22,101,52,0.10);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.recipe-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 40px rgba(22,101,52,0.18);
+}
+
+
+/* =========================================================
+   RECIPE IMAGE / ICON
+========================================================= */
+
+.recipe-image {
+    min-height: 155px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+
+    border-bottom: 1px solid #86efac;
+}
+
+.food-icon {
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 42px;
+
+    background: #ffffff;
+
+    border: 2px solid #22c55e;
+
+    box-shadow:
+        0 8px 20px rgba(22,101,52,0.15);
+}
+
+.recipe-category {
+    margin-top: 12px;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background: #166534;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.recipe-content {
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.recipe-content h2 {
+    color: #14532d;
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+.recipe-description {
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    min-height: 44px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   NUTRITION ROW
+========================================================= */
+
+.nutrition-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 7px;
+
+    margin-bottom: 15px;
+}
+
+.nutrition-item {
+    text-align: center;
+
+    padding: 10px 5px;
+
+    border-radius: 12px;
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+}
+
+.nutrition-item span {
+    display: block;
+
+    font-size: 18px;
+
+    margin-bottom: 3px;
+}
+
+.nutrition-item strong {
+    display: block;
+
+    color: #166534;
+
+    font-size: 11px;
+}
+
+.nutrition-item small {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   RECIPE TIME
+========================================================= */
+
+.recipe-time {
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    background: #ecfdf5;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    margin-bottom: 15px;
+}
+
+.recipe-time i {
+    color: #15803d;
+
+    margin-right: 5px;
+}
+
+.recipe-time strong {
+    color: #166534;
+}
+
+
+/* =========================================================
+   INGREDIENTS
+========================================================= */
+
+.ingredients {
+    padding: 14px;
+
+    margin-bottom: 18px;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+
+    border-left: 4px solid #166534;
+}
+
+.ingredients h3 {
+    color: #14532d;
+
+    font-size: 13px;
+
+    margin-bottom: 6px;
+}
+
+.ingredients p {
+    color: #64748b;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   VIEW RECIPE BUTTON
+========================================================= */
+
+.view-recipe-btn {
+    width: 100%;
+
+    margin-top: auto;
+
+    padding: 12px 16px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #166534,
+            #22c55e
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: 0.3s ease;
+}
+
+.view-recipe-btn i:last-child {
+    transition: 0.3s ease;
+}
+
+.view-recipe-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(22,101,52,0.25);
+}
+
+.view-recipe-btn:hover i:last-child {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   NO RESULTS
+========================================================= */
+
+.no-results {
+    display: none;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.no-results-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+.no-results h3 {
+    color: #166534;
+
+    font-size: 23px;
+
+    margin-bottom: 6px;
+}
+
+.no-results p {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RECIPE MODAL OVERLAY
+========================================================= */
+
+.recipe-modal {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 30px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(15, 23, 42, 0.72);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: all 0.3s ease;
+
+    z-index: 99999;
+
+    overflow-y: auto;
+}
+
+
+/* SHOW MODAL */
+
+.recipe-modal.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   MODAL BOX
+========================================================= */
+
+.modal-box {
+    width: 100%;
+
+    max-width: 760px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    position: relative;
+
+    padding: 42px 42px 35px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f0fdf4
+        );
+
+    border: 2px solid #166534;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.30);
+
+    transform: translateY(25px) scale(0.96);
+
+    transition: all 0.35s ease;
+}
+
+.recipe-modal.show .modal-box {
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   MODAL SCROLLBAR
+========================================================= */
+
+.modal-box::-webkit-scrollbar {
+    width: 7px;
+}
+
+.modal-box::-webkit-scrollbar-track {
+    background: #dcfce7;
+
+    border-radius: 10px;
+}
+
+.modal-box::-webkit-scrollbar-thumb {
+    background: #22c55e;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-modal {
+    position: absolute;
+
+    top: 17px;
+    right: 17px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.3s ease;
+}
+
+.close-modal:hover {
+    background: #166534;
+
+    color: #ffffff;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   MODAL ICON
+========================================================= */
+
+.modal-icon {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 46px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+
+    border: 2px solid #166534;
+
+    box-shadow:
+        0 10px 25px rgba(22,101,52,0.16);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.modal-label {
+    display: block;
+
+    text-align: center;
+
+    color: #15803d;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 7px;
+}
+
+.modal-box > h2 {
+    text-align: center;
+
+    color: #14532d;
+
+    font-size: 32px;
+
+    margin: 0 0 8px;
+
+    font-weight: 700;
+}
+
+.modal-description {
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    max-width: 600px;
+
+    margin: 0 auto 25px;
+}
+
+
+/* =========================================================
+   MODAL INFO
+========================================================= */
+
+.modal-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.modal-info > div {
+    padding: 17px 10px;
+
+    text-align: center;
+
+    border-radius: 14px;
+
+    background: #ecfdf5;
+
+    border: 1.5px solid #86efac;
+
+    transition: 0.3s ease;
+}
+
+.modal-info > div:hover {
+    transform: translateY(-3px);
+
+    background: #dcfce7;
+
+    box-shadow:
+        0 8px 20px rgba(22,101,52,0.10);
+}
+
+.modal-info span {
+    display: block;
+
+    font-size: 22px;
+
+    margin-bottom: 7px;
+}
+
+.modal-info strong {
+    color: #166534;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MODAL SECTION
+========================================================= */
+
+.modal-section {
+    margin-bottom: 15px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    border-left: 4px solid #166534;
+
+    box-shadow:
+        0 5px 15px rgba(22,101,52,0.06);
+}
+
+.modal-section h3 {
+    color: #14532d;
+
+    font-size: 15px;
+
+    margin: 0 0 8px;
+}
+
+.modal-section p {
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   HEALTHY TIP
+========================================================= */
+
+.healthy-tip {
+    padding: 16px 18px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+
+    border: 1.5px solid #166534;
+
+    color: #166534;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin-top: 18px;
+}
+
+.healthy-tip strong {
+    color: #14532d;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .recipes-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .recipe-page {
+        padding: 35px 18px;
+    }
+
+    .recipes-header h1 {
+        font-size: 34px;
+    }
+
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-box {
+        padding: 38px 20px 25px;
+
+        border-radius: 22px;
+
+        max-height: 92vh;
+    }
+
+    .modal-box > h2 {
+        font-size: 27px;
+    }
+
+    .modal-info {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-description {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .recipe-page {
+        padding: 25px 12px;
+    }
+
+    .filter-buttons {
+        gap: 7px;
+    }
+
+    .filter-btn {
+        padding: 8px 12px;
+
+        font-size: 11px;
+    }
+
+    .nutrition-row {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .modal-icon {
+        width: 75px;
+        height: 75px;
+
+        font-size: 38px;
+    }
+
+    .close-modal {
+        width: 36px;
+        height: 36px;
+
+        font-size: 22px;
+    }
+
+}
+
+/* =========================================================
+   FINAL ALIGNMENT FIX
+========================================================= */
+
+/* Filter buttons properly centered */
+.filter-buttons {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto 30px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    padding: 0 10px;
+}
+
+
+/* Recipe count centered */
+.recipe-count {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+}
+
+
+/* Recipe cards properly centered */
+.recipes-grid {
+    width: 100%;
+    max-width: 1250px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0 5px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+
+/* Search box centered */
+.recipe-search {
+    width: 100%;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Header centered */
+.recipes-header {
+    width: 100%;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-buttons .filter-btn:first-child {
+    margin-left: 0;
+}
+
+.filter-buttons .filter-btn {
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   FILTER BUTTONS - FINAL CENTER FIX
+========================================================= */
+
+.filter-buttons {
+    width: 100% !important;
+    max-width: 1250px !important;
+
+    margin: 0 auto 30px auto !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    flex-wrap: wrap !important;
+
+    gap: 12px !important;
+
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+}
+
+
+/* Every button */
+.filter-buttons .filter-btn {
+    position: static !important;
+
+    margin: 0 !important;
+
+    left: auto !important;
+    right: auto !important;
+
+    transform: none !important;
+
+    flex: 0 0 auto !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* Active All button */
+.filter-buttons .filter-btn.active {
+    position: static !important;
+
+    margin: 0 !important;
+
+    transform: none !important;
+
+    left: auto !important;
+    right: auto !important;
+}
+
+
+/* Remove any pseudo positioning */
+.filter-buttons::before,
+.filter-buttons::after {
+    display: none !important;
+}
+
+
+/* =========================================================
+   RECIPE COUNT
+========================================================= */
+
+.recipe-count {
+    width: 100% !important;
+
+    max-width: 1250px !important;
+
+    margin: 0 auto 30px auto !important;
+
+    text-align: center !important;
+}
+
+
+/* =========================================================
+   RECIPE GRID
+========================================================= */
+
+.recipes-grid {
+    width: 100% !important;
+
+    max-width: 1250px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    padding: 0 !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 28px !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .filter-buttons {
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+
+    .recipes-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+/* =========================================================
+   RECIPE FILTERS - CENTER ALIGNMENT
+========================================================= */
+
+.recipe-filters {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto 30px auto !important;
+    padding: 0 10px;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    flex-wrap: wrap;
+    gap: 12px;
+
+    position: relative;
+    left: auto;
+    right: auto;
+    transform: none;
+}
+
+
+/* FILTER BUTTON */
+
+.recipe-filters .filter-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+
+    margin: 0 !important;
+    padding: 10px 20px;
+
+    flex: 0 0 auto;
+
+    position: relative;
+    left: auto;
+    right: auto;
+    transform: none;
+
+    border: 1.5px solid #166534;
+    border-radius: 30px;
+
+    background: #ffffff;
+    color: #166534;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* HOVER */
+
+.recipe-filters .filter-btn:hover {
+    background: #dcfce7;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(22, 101, 52, 0.15);
+}
+
+
+/* ACTIVE */
+
+.recipe-filters .filter-btn.active {
+    background: linear-gradient(
+        135deg,
+        #166534,
+        #22c55e
+    );
+
+    color: #ffffff;
+
+    border-color: #166534;
+
+    box-shadow:
+        0 7px 18px rgba(22, 101, 52, 0.22);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .recipe-filters {
+        justify-content: center !important;
+        padding: 0 5px;
+        gap: 8px;
+    }
+
+    .recipe-filters .filter-btn {
+        padding: 8px 13px;
+        font-size: 11px;
+    }
+}

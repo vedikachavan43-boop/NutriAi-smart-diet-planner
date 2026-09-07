@@ -1,0 +1,427 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}
+AI Food Detection - NutriAI
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/food_detection.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="food-detection-page">
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <div class="detection-header">
+
+        <div class="detection-badge">
+            🤖 AI Powered Food Recognition
+        </div>
+
+        <h1>
+            Discover What's
+            <span>On Your Plate</span>
+        </h1>
+
+        <p>
+            Upload a photo of your food and let NutriAI
+            identify it and provide nutritional information.
+        </p>
+
+    </div>
+
+
+    <!-- =========================================
+         MAIN DETECTION CONTAINER
+    ========================================== -->
+
+    <div class="detection-container">
+
+
+        <!-- =====================================
+             UPLOAD CARD
+        ====================================== -->
+
+        <div class="upload-card">
+
+            <div class="upload-icon">
+                📷
+            </div>
+
+            <h2>
+                Upload Food Image
+            </h2>
+
+            <p>
+                Choose a clear image of your food
+                for better AI detection.
+            </p>
+
+
+            <!-- =================================
+                 FOOD DETECTION FORM
+            ================================== -->
+
+            <form action="/predict"
+                  method="POST"
+                  enctype="multipart/form-data"
+                  id="foodDetectionForm">
+
+
+                <!-- IMAGE PREVIEW -->
+
+                <div class="image-preview"
+                     id="imagePreview">
+
+                    <div class="preview-placeholder">
+
+                        <span>
+                            🍽️
+                        </span>
+
+                        <small>
+                            Your image preview will appear here
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     CHOOSE IMAGE
+                ================================== -->
+
+                <label for="foodImage"
+                       class="choose-image-btn">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    Choose Image
+
+                </label>
+
+
+                <input type="file"
+                       id="foodImage"
+                       name="food_image"
+                       accept="image/*"
+                       required
+                       hidden>
+
+
+                <p class="file-info">
+                    JPG, JPEG or PNG • Max 10 MB
+                </p>
+
+
+                <!-- =================================
+                     DETECT FOOD BUTTON
+                ================================== -->
+
+                <button type="submit"
+                        class="detect-btn"
+                        id="detectBtn">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    Detect Food
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- =====================================
+             AI INFORMATION CARD
+        ====================================== -->
+
+        <div class="info-card">
+
+
+            <div class="info-heading">
+
+                <div class="info-icon">
+                    ✨
+                </div>
+
+                <div>
+
+                    <h2>
+                        AI Nutrition Analysis
+                    </h2>
+
+                    <p>
+                        Smart insights from your food image
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 RESULT PLACEHOLDER
+            ================================== -->
+
+            <div class="result-placeholder">
+
+                <div class="result-icon">
+                    🥗
+                </div>
+
+                <h3>
+                    Ready to Analyze
+                </h3>
+
+                <p>
+                    Upload a food image and click
+                    <strong>Detect Food</strong>
+                    to see your nutrition details.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         HOW IT WORKS
+    ========================================== -->
+
+    <div class="how-section">
+
+
+        <div class="section-heading">
+
+            <span>
+                HOW IT WORKS
+            </span>
+
+            <h2>
+                Smart Food Detection in 3 Steps
+            </h2>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+
+            <!-- STEP 1 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <div class="step-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Upload
+                </h3>
+
+                <p>
+                    Upload a clear photo of your food.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <div class="step-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI Detection
+                </h3>
+
+                <p>
+                    Our YOLO AI model analyzes the image.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <div class="step-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Get Nutrition
+                </h3>
+
+                <p>
+                    View calories and nutrition information.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     IMAGE PREVIEW JAVASCRIPT
+========================================= -->
+
+<script>
+
+const foodImage =
+    document.getElementById("foodImage");
+
+const imagePreview =
+    document.getElementById("imagePreview");
+
+const foodDetectionForm =
+    document.getElementById("foodDetectionForm");
+
+const detectBtn =
+    document.getElementById("detectBtn");
+
+
+/* =========================================
+   IMAGE PREVIEW
+========================================= */
+
+foodImage.addEventListener(
+    "change",
+    function () {
+
+        const file = this.files[0];
+
+        if (!file) {
+            return;
+        }
+
+
+        /* FILE SIZE CHECK */
+
+        if (file.size > 10 * 1024 * 1024) {
+
+            alert(
+                "Image size must be less than 10 MB."
+            );
+
+            this.value = "";
+
+            return;
+        }
+
+
+        /* IMAGE TYPE CHECK */
+
+        if (!file.type.startsWith("image/")) {
+
+            alert(
+                "Please select a valid image."
+            );
+
+            this.value = "";
+
+            return;
+        }
+
+
+        /* PREVIEW */
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function (event) {
+
+                imagePreview.innerHTML = `
+
+                    <img
+                        src="${event.target.result}"
+                        alt="Selected Food"
+                        class="preview-image"
+                    >
+
+                `;
+
+            };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* =========================================
+   FORM SUBMIT
+========================================= */
+
+foodDetectionForm.addEventListener(
+    "submit",
+    function () {
+
+        if (!foodImage.files.length) {
+
+            alert(
+                "Please choose a food image first."
+            );
+
+            return;
+        }
+
+
+        /* BUTTON LOADING */
+
+        detectBtn.disabled = true;
+
+        detectBtn.innerHTML = `
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Detecting Food...
+
+        `;
+
+    }
+);
+
+</script>
+
+{% endblock %}
+```

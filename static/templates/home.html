@@ -1,0 +1,483 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Home - NutriAI
+{% endblock %}
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/home.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<section class="hero-section">
+
+    <div class="hero-container">
+
+
+        <!-- =================================================
+             LEFT SIDE - HERO CONTENT
+        ================================================== -->
+
+        <div class="hero-content">
+
+
+            <!-- BADGE -->
+
+            <div class="hero-badge">
+
+                🌿 Smart Nutrition powered by AI
+
+            </div>
+
+
+            <!-- MAIN HEADING -->
+
+            <h1>
+
+                Eat Smart.
+
+                <span>
+                    Live Healthy.
+                </span>
+
+            </h1>
+
+
+            <!-- DESCRIPTION -->
+
+            <p>
+
+                NutriAI helps you understand your food,
+                track calories, calculate BMI and get
+                personalized diet recommendations
+                using Artificial Intelligence.
+
+            </p>
+
+
+            <!-- =================================================
+                 HERO BUTTONS
+            ================================================== -->
+
+            <div class="hero-buttons">
+
+
+                <!-- GET STARTED -->
+
+                <a href="/food-detection"
+                   class="primary-btn">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    Get Started
+
+                </a>
+
+
+                <!-- DASHBOARD -->
+
+                <a href="/dashboard"
+                   class="secondary-btn">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Explore Dashboard
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT SIDE - FOOD IMAGE
+        ================================================== -->
+
+        <div class="hero-visual">
+
+
+            <!-- =================================================
+                 SQUARE FOOD IMAGE
+            ================================================== -->
+
+            <div class="food-image-box">
+
+                <img
+                    src="{{ url_for('static', filename='images/img1.jpg') }}"
+                    alt="Healthy Food"
+                    class="food-image"
+                >
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FLOATING CALORIES CARD
+            ================================================== -->
+
+            <div class="floating-card calorie-card">
+
+                <span class="floating-icon">
+                    🔥
+                </span>
+
+                <div>
+
+                    <strong>
+                        Calories
+                    </strong>
+
+                    <small>
+                        Track Daily
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FLOATING BMI CARD
+            ================================================== -->
+
+            <div class="floating-card bmi-card">
+
+                <span class="floating-icon">
+                    ⚖️
+                </span>
+
+                <div>
+
+                    <strong>
+                        BMI
+                    </strong>
+
+                    <small>
+                        Stay Healthy
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FLOATING DIET CARD
+            ================================================== -->
+
+            <div class="floating-card diet-card">
+
+                <span class="floating-icon">
+                    🧠
+                </span>
+
+                <div>
+
+                    <strong>
+                        AI Diet
+                    </strong>
+
+                    <small>
+                        Personalized
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FEATURES SECTION
+========================================================= -->
+
+<section class="features-section">
+
+
+    <!-- =================================================
+         SECTION HEADING
+    ================================================== -->
+
+    <div class="section-heading">
+
+
+        <span>
+            WHY NUTRIAI?
+        </span>
+
+
+        <h2>
+
+            Everything You Need
+            for a Healthier Lifestyle
+
+        </h2>
+
+
+        <p>
+
+            Simple, smart and personalized
+            nutrition management.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =================================================
+         FEATURES GRID
+    ================================================== -->
+
+    <div class="features-grid">
+
+
+        <!-- =================================================
+             FEATURE 1
+        ================================================== -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>
+                AI Food Detection
+            </h3>
+
+            <p>
+
+                Upload a food image and
+                identify the food using AI.
+
+            </p>
+
+            <a href="/food-detection">
+                Try Now →
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FEATURE 2
+        ================================================== -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔥
+            </div>
+
+            <h3>
+                Calorie Tracking
+            </h3>
+
+            <p>
+
+                Track calories and understand
+                your daily food intake.
+
+            </p>
+
+            <a href="/history">
+                View History →
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FEATURE 3
+        ================================================== -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                BMI Calculator
+            </h3>
+
+            <p>
+
+                Calculate BMI and understand
+                your health category.
+
+            </p>
+
+            <a href="/bmi">
+                Calculate BMI →
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FEATURE 4
+        ================================================== -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🧠
+            </div>
+
+            <h3>
+                AI Diet Plan
+            </h3>
+
+            <p>
+
+                Get personalized diet
+                recommendations.
+
+            </p>
+
+            <a href="/diet">
+                View Diet Plan →
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FEATURE 5
+        ================================================== -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🍽️
+            </div>
+
+            <h3>
+                Healthy Recipes
+            </h3>
+
+            <p>
+
+                Discover healthy and
+                nutritious recipes.
+
+            </p>
+
+            <a href="/recipes">
+                Explore Recipes →
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FEATURE 6
+        ================================================== -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📈
+            </div>
+
+            <h3>
+                Progress Tracking
+            </h3>
+
+            <p>
+
+                Track your nutrition and
+                fitness progress.
+
+            </p>
+
+            <a href="/progress">
+                View Progress →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BOTTOM CTA SECTION
+========================================================= -->
+
+<section class="home-cta">
+
+
+    <div class="cta-content">
+
+
+        <span class="cta-badge">
+            🌿 Start Your Healthy Journey
+        </span>
+
+
+        <h2>
+            Make Every Meal Count.
+        </h2>
+
+
+        <p>
+
+            Let NutriAI help you understand
+            your food and build healthier habits.
+
+        </p>
+
+
+        <a href="/food-detection"
+           class="primary-btn">
+
+            <i class="fa-solid fa-camera"></i>
+
+            Start Food Detection
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

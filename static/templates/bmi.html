@@ -1,0 +1,343 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}
+BMI Calculator - NutriAI
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/bmi.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="bmi-page">
+
+    <!-- PAGE HEADER -->
+
+    <div class="bmi-header">
+
+        <div class="bmi-badge">
+            ⚖️ NutriAI Health Calculator
+        </div>
+
+        <h1>
+            BMI <span>Calculator</span>
+        </h1>
+
+        <p>
+            Calculate your Body Mass Index and understand
+            your current weight category.
+        </p>
+
+    </div>
+
+
+    <!-- MAIN BMI BOX -->
+
+    <div class="bmi-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="bmi-form-card">
+
+            <div class="card-icon">
+                ⚖️
+            </div>
+
+            <h2>
+                Enter Your Details
+            </h2>
+
+            <p class="card-description">
+                Enter your height and weight to calculate
+                your BMI accurately.
+            </p>
+
+
+            <form method="POST">
+
+
+                <!-- HEIGHT -->
+
+                <div class="input-group">
+
+                    <label for="height">
+                        <i class="fa-solid fa-ruler-vertical"></i>
+                        Height
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="number"
+                            id="height"
+                            name="height"
+                            placeholder="Enter your height"
+                            min="50"
+                            max="250"
+                            step="0.1"
+                            required
+                        >
+
+                        <span>cm</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WEIGHT -->
+
+                <div class="input-group">
+
+                    <label for="weight">
+                        <i class="fa-solid fa-weight-scale"></i>
+                        Weight
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="number"
+                            id="weight"
+                            name="weight"
+                            placeholder="Enter your weight"
+                            min="10"
+                            max="300"
+                            step="0.1"
+                            required
+                        >
+
+                        <span>kg</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button type="submit"
+                        class="calculate-btn">
+
+                    <i class="fa-solid fa-calculator"></i>
+
+                    Calculate BMI
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="bmi-result-card">
+
+            <div class="result-top-icon">
+                📊
+            </div>
+
+
+            {% if bmi %}
+
+                <span class="result-label">
+                    YOUR BMI RESULT
+                </span>
+
+                <div class="bmi-number">
+                    {{ bmi }}
+                </div>
+
+                <h2>
+                    {{ category }}
+                </h2>
+
+                <p class="result-message">
+
+                    Your BMI has been calculated based
+                    on the height and weight you entered.
+
+                </p>
+
+
+                <!-- BMI STATUS -->
+
+                <div class="bmi-status">
+
+                    {% if bmi < 18.5 %}
+
+                        <span>🔵</span>
+                        Below healthy range
+
+                    {% elif bmi < 25 %}
+
+                        <span>🟢</span>
+                        Healthy weight range
+
+                    {% elif bmi < 30 %}
+
+                        <span>🟠</span>
+                        Above healthy range
+
+                    {% else %}
+
+                        <span>🔴</span>
+                        High weight range
+
+                    {% endif %}
+
+                </div>
+
+            {% else %}
+
+                <span class="result-label">
+                    YOUR RESULT
+                </span>
+
+                <h2>
+                    Your BMI
+                </h2>
+
+                <p class="result-message">
+                    Enter your height and weight and click
+                    <strong>Calculate BMI</strong> to see
+                    your result here.
+                </p>
+
+
+                <div class="empty-result">
+
+                    <span>
+                        📈
+                    </span>
+
+                    <small>
+                        Your BMI result will appear here
+                    </small>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- BMI RANGE -->
+
+    <div class="bmi-range-section">
+
+        <div class="range-heading">
+
+            <span>
+                BMI RANGE
+            </span>
+
+            <h2>
+                Understand Your BMI Category
+            </h2>
+
+        </div>
+
+
+        <div class="range-grid">
+
+            <div class="range-card underweight">
+
+                <span class="range-icon">
+                    🔵
+                </span>
+
+                <div>
+
+                    <strong>
+                        Underweight
+                    </strong>
+
+                    <small>
+                        Below 18.5
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="range-card normal">
+
+                <span class="range-icon">
+                    🟢
+                </span>
+
+                <div>
+
+                    <strong>
+                        Normal Weight
+                    </strong>
+
+                    <small>
+                        18.5 – 24.9
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="range-card overweight">
+
+                <span class="range-icon">
+                    🟠
+                </span>
+
+                <div>
+
+                    <strong>
+                        Overweight
+                    </strong>
+
+                    <small>
+                        25 – 29.9
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="range-card obese">
+
+                <span class="range-icon">
+                    🔴
+                </span>
+
+                <div>
+
+                    <strong>
+                        Obese
+                    </strong>
+
+                    <small>
+                        30+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+```

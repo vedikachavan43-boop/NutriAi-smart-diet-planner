@@ -1,0 +1,336 @@
+{% extends "base.html" %}
+
+{% block title %}
+AI Diet Plan - NutriAI
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/diet.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="diet-page">
+
+
+    <!-- HEADER -->
+
+    <div class="diet-header">
+
+        <div class="diet-badge">
+            🌿 AI Powered Nutrition
+        </div>
+
+        <h1>
+            Your Personalized
+            <span>AI Diet Plan</span>
+        </h1>
+
+        <p>
+            Tell us about yourself and NutriAI will create
+            a personalized daily meal plan for you.
+        </p>
+
+    </div>
+
+
+    <!-- FORM CARD -->
+
+    <div class="diet-form-card">
+
+        <div class="form-title">
+
+            <div class="form-icon">
+                🤖
+            </div>
+
+            <div>
+
+                <h2>
+                    Tell Us About Yourself
+                </h2>
+
+                <p>
+                    Enter your details to generate your
+                    personalized diet plan.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form action="/generate_diet"
+              method="POST"
+              class="diet-form">
+
+
+            <!-- AGE -->
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-calendar"></i>
+                    Age
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        name="age"
+                        placeholder="Enter your age"
+                        min="1"
+                        max="120"
+                        required>
+
+                    <span>Years</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- GOAL -->
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-bullseye"></i>
+                    Your Goal
+                </label>
+
+                <select name="goal" required>
+
+                    <option value="">
+                        Select your goal
+                    </option>
+
+                    <option value="weight-loss">
+                        Weight Loss
+                    </option>
+
+                    <option value="weight-gain">
+                        Weight Gain
+                    </option>
+
+                    <option value="maintain">
+                        Maintain Weight
+                    </option>
+
+                    <option value="muscle-gain">
+                        Muscle Gain
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- WEIGHT -->
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-weight-scale"></i>
+                    Weight
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        name="weight"
+                        placeholder="Enter your weight"
+                        min="1"
+                        step="0.1"
+                        required>
+
+                    <span>kg</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- DIET PREFERENCE -->
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-leaf"></i>
+                    Diet Preference
+                </label>
+
+                <select name="diet_preference" required>
+
+                    <option value="">
+                        Select preference
+                    </option>
+
+                    <option value="vegetarian">
+                        Vegetarian
+                    </option>
+
+                    <option value="non-vegetarian">
+                        Non-Vegetarian
+                    </option>
+
+                    <option value="vegan">
+                        Vegan
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- HEIGHT -->
+
+            <div class="input-group full-width">
+
+                <label>
+                    <i class="fa-solid fa-ruler-vertical"></i>
+                    Height
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        name="height"
+                        placeholder="Enter your height"
+                        min="50"
+                        max="250"
+                        step="0.1"
+                        required>
+
+                    <span>cm</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- GENERATE -->
+
+            <button type="submit"
+                    class="generate-btn">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                Generate My Diet Plan
+
+            </button>
+
+        </form>
+
+
+        <div class="privacy-note">
+
+            🛡️ Your information is used only to generate
+            your personalized plan.
+
+        </div>
+
+    </div>
+
+
+    <!-- FEATURES -->
+
+    <div class="assistant-card">
+
+        <div class="assistant-main">
+
+            <div class="assistant-icon">
+                🧠
+            </div>
+
+            <div>
+
+                <h2>
+                    NutriAI Nutrition Assistant
+                </h2>
+
+                <p>
+                    Smart recommendations based on your
+                    personal information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="assistant-feature">
+
+            <div class="feature-icon">
+                🍲
+            </div>
+
+            <div>
+
+                <strong>
+                    Personalized Meals
+                </strong>
+
+                <small>
+                    Meals based on your goal
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="assistant-feature">
+
+            <div class="feature-icon">
+                🔥
+            </div>
+
+            <div>
+
+                <strong>
+                    Calorie Target
+                </strong>
+
+                <small>
+                    Estimated daily calories
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="assistant-feature">
+
+            <div class="feature-icon">
+                💪
+            </div>
+
+            <div>
+
+                <strong>
+                    Balanced Nutrition
+                </strong>
+
+                <small>
+                    Protein, carbs and fats
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+{% endblock %}
